@@ -7,8 +7,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #000000;  /* Black background */
+    color: #f4f4f4;  /* Light text color for contrast */
 }
 
 .container {
@@ -17,7 +17,7 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-color: #222;  /* Slightly lighter black for header */
     color: white;
     padding: 30px 0;
     text-align: center;
@@ -57,7 +57,7 @@ p {
 
 section {
     padding: 30px 0;
-    background-color: white;
+    background-color: #1a1a1a;  /* Dark background for sections */
     margin-top: 20px;
     border-radius: 5px;
 }
@@ -74,7 +74,7 @@ h2 {
 footer {
     text-align: center;
     padding: 20px 0;
-    background-color: #333;
+    background-color: #222;  /* Matching footer color */
     color: white;
 }
 
