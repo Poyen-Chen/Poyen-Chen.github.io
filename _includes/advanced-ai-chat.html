@@ -1,0 +1,556 @@
+<!-- Advanced AI Chat Widget -->
+<div id="advanced-ai-chat" class="advanced-ai-chat">
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="ai-avatar">
+        <div class="avatar-circle">
+          <span>🤖</span>
+        </div>
+        <div class="ai-status">
+          <h3>AI Assistant</h3>
+          <span class="status-indicator">Online</span>
+        </div>
+      </div>
+      <button id="close-chat" class="close-btn">×</button>
+    </div>
+
+    <div class="chat-messages" id="advanced-chat-messages">
+      <div class="message ai-message">
+        <div class="message-avatar">🤖</div>
+        <div class="message-content">
+          <div class="message-text">
+            Hi! I'm your AI assistant. I can help you learn more about my work, skills, and experience. What would you like to know?
+          </div>
+          <div class="message-time">{{ site.time | date: "%H:%M" }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input-area">
+      <div class="input-container">
+        <input type="text" id="advanced-chat-input" placeholder="Ask me anything about my work..." />
+        <button id="send-advanced-message" class="send-btn">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+      <div class="quick-questions">
+        <button class="quick-btn" data-question="Tell me about your skills">Skills</button>
+        <button class="quick-btn" data-question="What projects have you worked on?">Projects</button>
+        <button class="quick-btn" data-question="How can I contact you?">Contact</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="advanced-chat-toggle" class="advanced-chat-toggle">
+  <div class="toggle-content">
+    <span class="toggle-icon">🤖</span>
+    <span class="toggle-text">Ask AI</span>
+  </div>
+</div>
+
+<style>
+.advanced-ai-chat {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 400px;
+  height: 600px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+  font-family: 'Inter', sans-serif;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+.advanced-ai-chat.active {
+  display: flex;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chat-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ai-avatar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar-circle {
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.ai-status h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.status-indicator {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.close-btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #f8f9fa;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.user-message {
+  flex-direction: row-reverse;
+}
+
+.message-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background: #667eea;
+  color: white;
+  flex-shrink: 0;
+}
+
+.user-message .message-avatar {
+  background: #28a745;
+}
+
+.message-content {
+  max-width: 70%;
+}
+
+.message-text {
+  background: white;
+  padding: 12px 16px;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.user-message .message-text {
+  background: #667eea;
+  color: white;
+}
+
+.message-time {
+  font-size: 11px;
+  color: #999;
+  margin-top: 4px;
+  text-align: right;
+}
+
+.user-message .message-time {
+  text-align: left;
+}
+
+.chat-input-area {
+  padding: 20px;
+  background: white;
+  border-top: 1px solid #e0e0e0;
+}
+
+.input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+#advanced-chat-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  outline: none;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+#advanced-chat-input:focus {
+  border-color: #667eea;
+}
+
+.send-btn {
+  width: 40px;
+  height: 40px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.send-btn:hover {
+  background: #5a6fd8;
+}
+
+.quick-questions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.quick-btn {
+  padding: 6px 12px;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 15px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #666;
+}
+
+.quick-btn:hover {
+  background: #667eea;
+  color: white;
+}
+
+.advanced-chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.advanced-chat-toggle:hover {
+  transform: scale(1.05);
+}
+
+.toggle-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggle-icon {
+  font-size: 20px;
+}
+
+.toggle-text {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 12px 16px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: fit-content;
+}
+
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  background: #999;
+  border-radius: 50%;
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .advanced-ai-chat {
+    width: calc(100vw - 40px);
+    height: 70vh;
+    bottom: 10px;
+    right: 20px;
+  }
+
+  .advanced-chat-toggle {
+    bottom: 10px;
+    right: 20px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const chatWidget = document.getElementById('advanced-ai-chat');
+  const chatToggle = document.getElementById('advanced-chat-toggle');
+  const closeBtn = document.getElementById('close-chat');
+  const chatMessages = document.getElementById('advanced-chat-messages');
+  const chatInput = document.getElementById('advanced-chat-input');
+  const sendBtn = document.getElementById('send-advanced-message');
+  const quickBtns = document.querySelectorAll('.quick-btn');
+
+  // Enhanced knowledge base
+  const aiKnowledge = {
+    skills: {
+      technical: [
+        "I'm proficient in modern web technologies including React, Vue.js, and Angular for frontend development.",
+        "On the backend, I work with Node.js, Python (Django/Flask), and various databases like MongoDB and PostgreSQL.",
+        "I have experience with cloud platforms like AWS, Google Cloud, and Azure for deployment and scaling.",
+        "My mobile development skills include React Native and Flutter for cross-platform applications."
+      ],
+      soft: [
+        "I excel at problem-solving and analytical thinking, which helps me tackle complex technical challenges.",
+        "Strong communication skills enable me to work effectively with teams and explain technical concepts clearly.",
+        "I'm a quick learner who stays updated with the latest technologies and industry trends.",
+        "Project management and agile methodologies are part of my skill set for delivering projects on time."
+      ]
+    },
+    projects: {
+      web: [
+        "I built a full-stack e-commerce platform with React frontend and Node.js backend, featuring real-time inventory management.",
+        "Developed a project management tool with drag-and-drop functionality, user authentication, and team collaboration features.",
+        "Created a responsive portfolio website (like this one!) with modern design principles and accessibility features."
+      ],
+      mobile: [
+        "Built a cross-platform task management app using React Native with offline capabilities and cloud synchronization.",
+        "Developed a fitness tracking application with real-time data visualization and social features.",
+        "Created a location-based service app with maps integration and push notifications."
+      ],
+      ai: [
+        "Implemented a machine learning model for sentiment analysis of customer reviews with 85% accuracy.",
+        "Built a recommendation system for an e-commerce platform using collaborative filtering algorithms.",
+        "Developed a chatbot using natural language processing for customer support automation."
+      ]
+    },
+    experience: [
+      "I have 5+ years of experience in software development, working on projects ranging from startups to enterprise solutions.",
+      "My experience includes leading development teams, mentoring junior developers, and collaborating with cross-functional teams.",
+      "I've worked in agile environments, delivering projects on time while maintaining high code quality standards.",
+      "My background includes both frontend and backend development, giving me a comprehensive understanding of full-stack applications."
+    ],
+    contact: [
+      "You can reach me via email at your.email@example.com for professional inquiries and collaborations.",
+      "I'm active on LinkedIn where I share insights about technology and development best practices.",
+      "Check out my GitHub profile to see my open-source contributions and project repositories.",
+      "I'm always open to discussing new opportunities, freelance projects, or technical collaborations."
+    ]
+  };
+
+  function getAdvancedResponse(userMessage) {
+    const message = userMessage.toLowerCase();
+
+    // Skills related
+    if (message.includes('skill') || message.includes('technology') || message.includes('tech') || message.includes('programming')) {
+      if (message.includes('soft') || message.includes('communication') || message.includes('team')) {
+        return aiKnowledge.skills.soft[Math.floor(Math.random() * aiKnowledge.skills.soft.length)];
+      }
+      return aiKnowledge.skills.technical[Math.floor(Math.random() * aiKnowledge.skills.technical.length)];
+    }
+
+    // Projects related
+    if (message.includes('project') || message.includes('work') || message.includes('portfolio') || message.includes('built')) {
+      if (message.includes('web') || message.includes('website') || message.includes('frontend')) {
+        return aiKnowledge.projects.web[Math.floor(Math.random() * aiKnowledge.projects.web.length)];
+      }
+      if (message.includes('mobile') || message.includes('app') || message.includes('ios') || message.includes('android')) {
+        return aiKnowledge.projects.mobile[Math.floor(Math.random() * aiKnowledge.projects.mobile.length)];
+      }
+      if (message.includes('ai') || message.includes('machine learning') || message.includes('ml')) {
+        return aiKnowledge.projects.ai[Math.floor(Math.random() * aiKnowledge.projects.ai.length)];
+      }
+      return aiKnowledge.projects.web[Math.floor(Math.random() * aiKnowledge.projects.web.length)];
+    }
+
+    // Experience related
+    if (message.includes('experience') || message.includes('years') || message.includes('background') || message.includes('career')) {
+      return aiKnowledge.experience[Math.floor(Math.random() * aiKnowledge.experience.length)];
+    }
+
+    // Contact related
+    if (message.includes('contact') || message.includes('email') || message.includes('reach') || message.includes('hire')) {
+      return aiKnowledge.contact[Math.floor(Math.random() * aiKnowledge.contact.length)];
+    }
+
+    // Default responses
+    const defaultResponses = [
+      "That's a great question! I'd be happy to tell you more about my skills, projects, or experience. What interests you most?",
+      "I love talking about my work! Would you like to know about my technical skills, recent projects, or professional experience?",
+      "I'm always excited to share my journey in tech. What would you like to learn more about - my skills, projects, or background?",
+      "Great question! I can tell you about my development skills, the projects I've worked on, or my professional experience. What would you prefer?"
+    ];
+
+    return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+  }
+
+  function addAdvancedMessage(content, isUser = false) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
+
+    const avatar = document.createElement('div');
+    avatar.className = 'message-avatar';
+    avatar.textContent = isUser ? '👤' : '🤖';
+
+    const messageContent = document.createElement('div');
+    messageContent.className = 'message-content';
+
+    const messageText = document.createElement('div');
+    messageText.className = 'message-text';
+    messageText.textContent = content;
+
+    const messageTime = document.createElement('div');
+    messageTime.className = 'message-time';
+    messageTime.textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+    messageContent.appendChild(messageText);
+    messageContent.appendChild(messageTime);
+
+    messageDiv.appendChild(avatar);
+    messageDiv.appendChild(messageContent);
+
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  function showTypingIndicator() {
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'message ai-message typing-indicator-container';
+    typingDiv.id = 'typing-indicator';
+
+    const avatar = document.createElement('div');
+    avatar.className = 'message-avatar';
+    avatar.textContent = '🤖';
+
+    const typingIndicator = document.createElement('div');
+    typingIndicator.className = 'typing-indicator';
+    typingIndicator.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+
+    typingDiv.appendChild(avatar);
+    typingDiv.appendChild(typingIndicator);
+
+    chatMessages.appendChild(typingDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  function hideTypingIndicator() {
+    const typingIndicator = document.getElementById('typing-indicator');
+    if (typingIndicator) {
+      typingIndicator.remove();
+    }
+  }
+
+  function sendAdvancedMessage() {
+    const message = chatInput.value.trim();
+    if (message) {
+      addAdvancedMessage(message, true);
+      chatInput.value = '';
+
+      // Show typing indicator
+      showTypingIndicator();
+
+      // Simulate AI thinking
+      setTimeout(() => {
+        hideTypingIndicator();
+        const response = getAdvancedResponse(message);
+        addAdvancedMessage(response, false);
+      }, 1500 + Math.random() * 1000); // Random delay between 1.5-2.5 seconds
+    }
+  }
+
+  // Event listeners
+  chatToggle.addEventListener('click', () => {
+    chatWidget.classList.add('active');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    chatWidget.classList.remove('active');
+  });
+
+  sendBtn.addEventListener('click', sendAdvancedMessage);
+
+  chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      sendAdvancedMessage();
+    }
+  });
+
+  // Quick question buttons
+  quickBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const question = this.getAttribute('data-question');
+      addAdvancedMessage(question, true);
+
+      showTypingIndicator();
+
+      setTimeout(() => {
+        hideTypingIndicator();
+        const response = getAdvancedResponse(question);
+        addAdvancedMessage(response, false);
+      }, 1500);
+    });
+  });
+});
+</script>

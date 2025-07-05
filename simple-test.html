@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Portfolio - Test Version</title>
+  <meta name="description" content="Personal portfolio and academic website">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #e0e0e0;
+      background-color: #1a1a1a;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    .site-header {
+      background: #2d2d2d;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .site-title a {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #e0e0e0;
+      text-decoration: none;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .site-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .site-nav a {
+      color: #b0b0b0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .site-nav a:hover {
+      color: #667eea;
+    }
+
+    .site-nav a.active {
+      color: #667eea;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .site-nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 1px;
+    }
+
+    /* Main Content */
+    .site-main {
+      min-height: calc(100vh - 200px);
+      padding: 2rem 0;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #667eea;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: #667eea;
+    }
+
+    /* Cards */
+    .card {
+      background: #2d2d2d;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #404040;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    }
+
+    .card h2 {
+      color: #e0e0e0;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .card p {
+      color: #b0b0b0;
+      margin-bottom: 1rem;
+    }
+
+    /* Grid Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .profile-image {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      background: #f0f0f0;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 1.2rem;
+      object-fit: cover;
+    }
+
+    /* Projects */
+    .project-card {
+      background: #2d2d2d;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      border: 1px solid #404040;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-content h3 {
+      color: #e0e0e0;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-content p {
+      color: #b0b0b0;
+      margin-bottom: 1rem;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: #404040;
+      color: #e0e0e0;
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: #333;
+      color: white;
+      padding: 3rem 0 1rem;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      color: #667eea;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      background: rgba(255,255,255,0.1);
+      transition: background 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #999;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .site-nav ul {
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 200px;
+      }
+    }
+
+    /* Additional styles for the home page */
+    .project-filters {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 8px 16px;
+      border: 1px solid #404040;
+      background: #2d2d2d;
+      color: #b0b0b0;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #667eea;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1rem;
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      background: #667eea;
+      border-radius: 50%;
+    }
+
+    .timeline-date {
+      font-weight: 600;
+      color: #667eea;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-content h3 {
+      margin-bottom: 0.5rem;
+      color: #e0e0e0;
+      font-size: 1.3rem;
+    }
+
+    .timeline-content p {
+      color: #b0b0b0;
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .timeline-content strong {
+      color: #667eea;
+      font-weight: 600;
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .contact-methods {
+      margin-top: 2rem;
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-method i {
+      color: #667eea;
+      width: 20px;
+    }
+
+    .contact-method span {
+      color: #b0b0b0;
+    }
+
+    .skills {
+      margin-top: 2rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .education-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .education-tags .tag {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      .contact-content {
+        grid-template-columns: 1fr;
+      }
+
+      .project-filters {
+        justify-content: center;
+      }
+
+      .timeline {
+        padding-left: 1rem;
+      }
+
+      .timeline-item {
+        padding-left: 1rem;
+      }
+    }
+
+    /* AI Chat Styles */
+    .advanced-ai-chat {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 400px;
+      height: 600px;
+      background: #2d2d2d;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      display: none;
+      flex-direction: column;
+      z-index: 1000;
+      font-family: 'Inter', sans-serif;
+      border: 1px solid #404040;
+      overflow: hidden;
+    }
+
+    .advanced-ai-chat.active {
+      display: flex;
+    }
+
+    .chat-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .chat-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ai-avatar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar-circle {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .ai-status h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .status-indicator {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background: #1a1a1a;
+    }
+
+    .message {
+      display: flex;
+      margin-bottom: 20px;
+      gap: 12px;
+    }
+
+    .user-message {
+      flex-direction: row-reverse;
+    }
+
+    .message-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      background: #667eea;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .user-message .message-avatar {
+      background: #28a745;
+    }
+
+    .message-content {
+      max-width: 70%;
+    }
+
+    .message-text {
+      background: #404040;
+      color: #e0e0e0;
+      padding: 12px 16px;
+      border-radius: 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      line-height: 1.4;
+      word-wrap: break-word;
+    }
+
+    .user-message .message-text {
+      background: #667eea;
+      color: white;
+    }
+
+    .message-time {
+      font-size: 11px;
+      color: #999;
+      margin-top: 4px;
+      text-align: right;
+    }
+
+    .user-message .message-time {
+      text-align: left;
+    }
+
+    .chat-input-area {
+      padding: 20px;
+      background: #2d2d2d;
+      border-top: 1px solid #404040;
+    }
+
+    .input-container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    #advanced-chat-input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid #404040;
+      background: #1a1a1a;
+      color: #e0e0e0;
+      border-radius: 25px;
+      outline: none;
+      font-size: 14px;
+      transition: border-color 0.3s ease;
+    }
+
+    #advanced-chat-input:focus {
+      border-color: #667eea;
+    }
+
+    #advanced-chat-input::placeholder {
+      color: #808080;
+    }
+
+    .send-btn {
+      width: 40px;
+      height: 40px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+    }
+
+    .send-btn:hover {
+      background: #5a6fd8;
+    }
+
+    .quick-questions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .quick-btn {
+      padding: 6px 12px;
+      background: #404040;
+      border: none;
+      border-radius: 15px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: #b0b0b0;
+    }
+
+    .quick-btn:hover {
+      background: #667eea;
+      color: white;
+    }
+
+    .advanced-chat-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      z-index: 999;
+      transition: transform 0.3s ease;
+    }
+
+    .advanced-chat-toggle:hover {
+      transform: scale(1.05);
+    }
+
+    .toggle-content {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toggle-icon {
+      font-size: 20px;
+    }
+
+    .toggle-text {
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 12px 16px;
+      background: #404040;
+      border-radius: 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      width: fit-content;
+    }
+
+    .typing-dot {
+      width: 8px;
+      height: 8px;
+      background: #999;
+      border-radius: 50%;
+      animation: typing 1.4s infinite ease-in-out;
+    }
+
+    .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+    .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+    @keyframes typing {
+      0%, 80%, 100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+      40% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .advanced-ai-chat {
+        width: calc(100vw - 40px);
+        height: 70vh;
+        bottom: 10px;
+        right: 20px;
+      }
+
+      .advanced-chat-toggle {
+        bottom: 10px;
+        right: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="site-title">
+          <a href="#home">Po-Yen Chen</a>
+        </div>
+        <nav class="site-nav">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="site-main">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <h1>Hi, I'm Po-Yen Chen</h1>
+        <p>Full Stack Developer & AI Enthusiast</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+      <div class="card">
+        <h2>About Me</h2>
+        <div class="about-content">
+          <div>
+            <img src="images/profile.jpg" alt="Po-Yen Chen" class="profile-image">
+          </div>
+          <div>
+            <p>I'm a master's graduate in Simulation Sciences with a background in data specialization and chemical engineering. Passionate about polymer applications. With 3+ year experienced in LLMs, computer vision, and data-driven applications like document summarization, recommendation systems, and instance segmentation. Skilled in building ML pipelines, real-time web apps, and interactive dashboards. Proficient in Python and cloud platform.
+            <div class="skills">
+              <h3>Skills</h3>
+              <div class="skill-tags">
+                <span class="tag">Tensorflow</span>
+                <span class="tag">Python</span>
+                <span class="tag">C</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Git</span>
+                <span class="tag">AWS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="container">
+      <div class="card">
+        <h2>Education</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">10.2021 - 03.2025</div>
+            <div class="timeline-content">
+              <h3>M.Sc. in Simulation Sciences</h3>
+              <p><strong>RWTH Aachen University</strong></p>
+              <p>Specialization in computational engineering and data specialization</p>
+              <p>Focus areas: Numerical Optimization, High-Performance Computing, Parallel Computing, Deep Learning, Machine Learning, Computer Vision</p>
+              <div class="education-tags">
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Computer Vision</span>
+                <span class="tag">High-Performance Computing</span>
+                <span class="tag">Numerical Optimization</span>
+                <span class="tag">Computer Vision</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">09.2014 - 06.2018</div>
+            <div class="timeline-content">
+              <h3>B.Sc. in Chemical Engineering</h3>
+              <p><strong>National Cheng Kung University (NCKU)</strong></p>
+              <p>Foundation in chemical process design, polymer science, and fluid mechanics</p>
+              <div class="education-tags">
+                <span class="tag">Chemical Engineering</span>
+                <span class="tag">Polymer Science</span>
+                <span class="tag">Process Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container">
+      <div class="card">
+        <h2>Featured Projects</h2>
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="LLM">LLM</button>
+          <button class="filter-btn" data-filter="ML">ML</button>
+          <button class="filter-btn" data-filter="Computer-Vision">Computer Vision</button>
+        </div>
+        <div class="grid">
+            <div class="project-card" data-category="Computer-Vision">
+                <div class="project-image">Determination of Particle Size Distributions Using a YOLO-Based Instance Segmentation Approach</div>
+                <div class="project-content">
+                  <h3>Determination of Particle Size Distributions Using a YOLO-Based Instance Segmentation Approach</h3>
+                  <p>An real-time dashboard application for ore particle size distribution analysis.</p>
+                  <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Instance Segmentation</span>
+                    <span class="tag">Plotly Dash</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="https://github.com/Poyen-Chen/master_thesis" class="btn btn-primary">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card" data-category="LLM">
+            <div class="project-image">Vehicle Recommendation System</div>
+            <div class="project-content">
+              <h3>Vehicle Recommendation System</h3>
+              <p>A customized chatbot built with Streamlit, trained with Retrieval-Augmented Generator (RAG) and fine-tuned with LLM.</p>
+              <div class="project-tags">
+                <span class="tag">RAG</span>
+                <span class="tag">LLM</span>
+                <span class="tag">AWS</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Poyen-Chen/TW-Porsche" class="btn btn-primary">View Project</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card" data-category="LLM">
+            <div class="project-image">Improving Customer Experience with Generative AI</div>
+            <div class="project-content">
+              <h3>Improving Customer Experience with Generative AI</h3>
+              <p>A customized dashboard application for customer service with analytics and visualization.</p>
+              <div class="project-tags">
+                <span class="tag">LLM</span>
+                <span class="tag">prompt engineering</span>
+                <span class="tag">web-scraping</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/gary8564/2024-EESTec-Hackathon" class="btn btn-primary">View Project</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card" data-category="ML">
+            <div class="project-image">Machine Learning Applied on Quantum Mechanical Simulation</div>
+            <div class="project-content">
+              <h3>Machine Learning Applied on Quantum Mechanical Simulation</h3>
+              <p>Establish structure property relationships for
+                efficient magnetic property prediction by kernel ridge regression.</p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">kernel ridge regression</span>
+                <span class="tag">AiiDA</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Poyen-Chen/sisclab2022-project6-git-main" class="btn btn-primary">View Project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+      <div class="card">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>Let's connect!</h3>
+            <p>I'm always interested in new opportunities and exciting projects. Feel free to reach out if you'd like to collaborate or just want to say hello.</p>
+            <div class="contact-methods">
+              <div class="contact-method">
+                <i class="fas fa-envelope"></i>
+                <span>sam9960628@gmail.com</span>
+              </div>
+              <div class="contact-method">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Aachen, Germany</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Po-Yen Chen</h3>
+          <p>Full Stack Developer & AI Enthusiast</p>
+        </div>
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <div class="social-links">
+            <a href="mailto:your.email@example.com">
+              <i class="fas fa-envelope"></i>
+              Email
+            </a>
+            <a href="https://github.com/Poyen-Chen">
+              <i class="fab fa-github"></i>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/po-yen-chen-311bb114a/">
+              <i class="fab fa-linkedin"></i>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; Updated in July 2025 Po-Yen Chen. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Advanced AI Chat Widget -->
+  <div id="advanced-ai-chat" class="advanced-ai-chat">
+    <div class="chat-container">
+      <div class="chat-header">
+        <div class="ai-avatar">
+          <div class="avatar-circle">
+            <span>🤖</span>
+          </div>
+          <div class="ai-status">
+            <h3>AI Assistant</h3>
+            <span class="status-indicator">Online</span>
+          </div>
+        </div>
+        <button id="close-chat" class="close-btn">×</button>
+      </div>
+
+      <div class="chat-messages" id="advanced-chat-messages">
+        <div class="message ai-message">
+          <div class="message-avatar">🤖</div>
+          <div class="message-content">
+            <div class="message-text">
+              Hi! I'm your AI assistant. I can help you learn more about my work, skills, and experience. What would you like to know?
+            </div>
+            <div class="message-time" id="current-time"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-input-area">
+        <div class="input-container">
+          <input type="text" id="advanced-chat-input" placeholder="Ask me anything about my work..." />
+          <button id="send-advanced-message" class="send-btn">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+        <div class="quick-questions">
+          <button class="quick-btn" data-question="Tell me about your computer vision projects">Computer Vision</button>
+          <button class="quick-btn" data-question="What LLM projects have you worked on?">LLM Projects</button>
+          <button class="quick-btn" data-question="Tell me about your education background">Education</button>
+          <button class="quick-btn" data-question="What tools and technologies do you use?">Tools & Tech</button>
+          <button class="quick-btn" data-question="What are your research interests?">Research</button>
+          <button class="quick-btn" data-question="How can I contact you?">Contact</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="advanced-chat-toggle" class="advanced-chat-toggle">
+    <div class="toggle-content">
+      <span class="toggle-icon">🤖</span>
+      <span class="toggle-text">Ask AI</span>
+    </div>
+  </div>
+
+  <script>
+    // Set current time
+    document.getElementById('current-time').textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+    // Client-Side Routing System
+    class PortfolioRouter {
+      constructor() {
+        this.routes = {
+          '/': 'home',
+          '/about': 'about',
+          '/education': 'education',
+          '/projects': 'projects',
+          '/contact': 'contact',
+          '/projects/computer-vision': 'computer-vision',
+          '/projects/llm': 'llm-projects',
+          '/projects/ml': 'ml-projects'
+        };
+
+        this.init();
+      }
+
+      init() {
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', (e) => {
+          this.handleRoute(window.location.pathname);
+        });
+
+        // Handle initial route
+        this.handleRoute(window.location.pathname);
+
+        // Add click handlers to navigation links
+        this.setupNavigation();
+      }
+
+      setupNavigation() {
+        const navLinks = document.querySelectorAll('a[href^="#"]');
+        navLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const href = link.getAttribute('href');
+            const route = href === '#home' ? '/' : href.replace('#', '');
+            this.navigateTo(route);
+          });
+        });
+
+        // Add project filter routing
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+          button.addEventListener('click', (e) => {
+            const filter = button.getAttribute('data-filter');
+            if (filter !== 'all') {
+              this.navigateTo(`/projects/${filter.toLowerCase()}`);
+            } else {
+              this.navigateTo('/projects');
+            }
+          });
+        });
+      }
+
+      navigateTo(route) {
+        // Update browser URL
+        window.history.pushState({}, '', route);
+
+        // Handle the route
+        this.handleRoute(route);
+      }
+
+      handleRoute(pathname) {
+        // Scroll to appropriate section
+        let targetId = this.routes[pathname] || 'home';
+
+        if (pathname.startsWith('/projects/')) {
+          targetId = 'projects';
+          // Activate appropriate filter
+          const filter = pathname.split('/')[2];
+          this.activateProjectFilter(filter);
+        }
+
+        this.scrollToSection(targetId);
+        this.updateActiveNavLink(pathname);
+      }
+
+      scrollToSection(sectionId) {
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+          targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+
+      updateActiveNavLink(pathname) {
+        // Remove active class from all nav links
+        const navLinks = document.querySelectorAll('.site-nav a');
+        navLinks.forEach(link => link.classList.remove('active'));
+
+        // Add active class to current nav link
+        const currentLink = document.querySelector(`a[href="${pathname === '/' ? '#home' : '#' + pathname.substring(1)}"]`);
+        if (currentLink) {
+          currentLink.classList.add('active');
+        }
+      }
+
+      activateProjectFilter(filter) {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        const activeButton = document.querySelector(`[data-filter="${filter.toUpperCase()}"]`);
+        if (activeButton) {
+          activeButton.classList.add('active');
+        }
+
+        // Filter projects
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category.toLowerCase() === filter.toLowerCase()) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+    }
+
+    // Initialize router when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize the router and make it globally accessible
+      window.portfolioRouter = new PortfolioRouter();
+
+      // AI Chat Functionality
+      const chatWidget = document.getElementById('advanced-ai-chat');
+      const chatToggle = document.getElementById('advanced-chat-toggle');
+      const closeBtn = document.getElementById('close-chat');
+      const chatMessages = document.getElementById('advanced-chat-messages');
+      const chatInput = document.getElementById('advanced-chat-input');
+      const sendBtn = document.getElementById('send-advanced-message');
+      const quickBtns = document.querySelectorAll('.quick-btn');
+
+      // Enhanced knowledge base personalized for Po-Yen Chen
+      const aiKnowledge = {
+        personal: {
+          name: "Po-Yen Chen",
+          title: "Full Stack Developer & AI Enthusiast",
+          location: "Aachen, Germany",
+          email: "sam9960628@gmail.com",
+          background: "I'm a master's graduate in Simulation Sciences with expertise in LLMs, computer vision, and data-driven applications. I have 3+ years of experience in building ML pipelines, real-time web apps, and interactive dashboards.",
+          languages: ["English", "Mandarin Chinese", "German"],
+          interests: ["AI/ML Research", "Computer Vision", "Quantum Computing", "Polymer Science", "High-Performance Computing"],
+          personality: "I'm passionate about bridging the gap between traditional engineering and cutting-edge AI technologies. I love solving complex problems and exploring new applications of machine learning."
+        },
+        education: {
+          masters: {
+            degree: "M.Sc. in Simulation Sciences",
+            university: "RWTH Aachen University",
+            period: "October 2021 - March 2025",
+            specialization: "Computational engineering and data specialization",
+            focus: "Numerical Optimization, High-Performance Computing, Parallel Computing, Deep Learning, Machine Learning, Computer Vision",
+            thesis: "Determination of Particle Size Distributions Using a YOLO-Based Instance Segmentation Approach",
+            gpa: "Excellent academic performance",
+            courses: ["Advanced Machine Learning", "Computer Vision", "High-Performance Computing", "Numerical Methods", "Parallel Programming"]
+          },
+          bachelors: {
+            degree: "B.Sc. in Chemical Engineering",
+            university: "National Cheng Kung University (NCKU)",
+            period: "September 2014 - June 2018",
+            focus: "Chemical process design, polymer science, and fluid mechanics",
+            gpa: "Strong foundation in engineering principles",
+            courses: ["Chemical Process Design", "Polymer Science", "Fluid Mechanics", "Thermodynamics", "Reaction Engineering"]
+          }
+        },
+        skills: {
+          technical: [
+            "I specialize in Python development with extensive experience in TensorFlow, machine learning, and data analysis.",
+            "My expertise includes computer vision applications, particularly YOLO-based instance segmentation for particle size analysis.",
+            "I'm proficient in building LLM applications using RAG (Retrieval-Augmented Generation) and fine-tuning techniques.",
+            "I have strong skills in high-performance computing, numerical optimization, and parallel computing from my simulation sciences background.",
+            "I work with modern web technologies including Streamlit, Plotly Dash, and AWS for deploying ML applications.",
+            "My chemical engineering background gives me unique insights into applying ML to material science and process optimization.",
+            "I'm experienced with cloud platforms like AWS for deploying and scaling machine learning applications.",
+            "I have expertise in data preprocessing, feature engineering, and building end-to-end ML pipelines."
+          ],
+          soft: [
+            "I excel at interdisciplinary problem-solving, combining my chemical engineering foundation with cutting-edge AI technologies.",
+            "Strong analytical skills developed through my simulation sciences research and data-driven project work.",
+            "Experience in collaborative research environments and hackathon participation, like the 2024 EESTec Hackathon.",
+            "Ability to communicate complex technical concepts clearly, especially when bridging AI and traditional engineering domains.",
+            "I'm a quick learner who adapts to new technologies and research areas efficiently.",
+            "Strong project management skills from leading research projects and coordinating with international teams."
+          ],
+          tools: [
+            "Python (TensorFlow, PyTorch, Scikit-learn)", "Streamlit", "Plotly Dash", "AWS", "Git", "Docker",
+            "OpenCV", "YOLO", "RAG", "Hugging Face", "Jupyter Notebooks", "SQL", "C++", "MATLAB"
+          ]
+        },
+        projects: {
+          computerVision: [
+            "I developed a real-time dashboard application for ore particle size distribution analysis using YOLO-based instance segmentation. This project demonstrates my expertise in computer vision and real-time data processing.",
+            "My master's thesis focused on 'Determination of Particle Size Distributions Using a YOLO-Based Instance Segmentation Approach' - a practical application of deep learning in materials science.",
+            "I implemented advanced computer vision algorithms for particle detection and size measurement, achieving high accuracy in industrial applications."
+          ],
+          llm: [
+            "I built a Vehicle Recommendation System using Streamlit, implementing RAG (Retrieval-Augmented Generation) and fine-tuned LLM models for personalized vehicle suggestions.",
+            "I contributed to a customer experience improvement project using generative AI, developing prompt engineering solutions and web-scraping techniques for enhanced customer service analytics.",
+            "I developed conversational AI systems that can understand context and provide intelligent responses based on user queries."
+          ],
+          ml: [
+            "I worked on machine learning applications in quantum mechanical simulation, establishing structure-property relationships for magnetic property prediction using kernel ridge regression.",
+            "My research includes applying machine learning to polymer applications, leveraging my chemical engineering background for innovative material science solutions.",
+            "I implemented predictive models for material properties using various ML algorithms including regression, classification, and clustering techniques."
+          ],
+          hackathon: [
+            "I participated in the 2024 EESTec Hackathon, working on innovative solutions that combine AI with engineering challenges.",
+            "My hackathon experience demonstrates my ability to work under pressure and deliver creative solutions in collaborative environments."
+          ]
+        },
+        experience: [
+          "I have 3+ years of experience in LLMs, computer vision, and data-driven applications, including document summarization, recommendation systems, and instance segmentation.",
+          "My background combines simulation sciences with practical AI applications, giving me a unique perspective on computational engineering challenges.",
+          "I've worked on projects ranging from academic research (my master's thesis) to collaborative hackathons, demonstrating both theoretical and practical AI expertise.",
+          "My experience includes building ML pipelines, real-time web applications, and interactive dashboards using modern technologies like Streamlit and Plotly Dash.",
+          "I have experience in both academic research environments and industry collaborations, giving me a well-rounded perspective on AI applications.",
+          "My work spans multiple domains including materials science, automotive industry, and customer service, showing my versatility in applying AI solutions."
+        ],
+        contact: [
+          "You can reach me via email at sam9960628@gmail.com for professional inquiries, research collaborations, or AI project discussions.",
+          "I'm based in Aachen, Germany, and I'm always interested in opportunities that combine AI/ML with engineering applications.",
+          "Check out my GitHub profile at github.com/Poyen-Chen to see my projects including the vehicle recommendation system and particle size analysis work.",
+          "I'm active on LinkedIn where I share insights about AI applications in engineering and my research in simulation sciences.",
+          "I'm open to remote work opportunities and international collaborations in AI/ML research and development.",
+          "Feel free to reach out for discussions about AI applications in engineering, research collaborations, or potential job opportunities."
+        ],
+        achievements: [
+          "Successfully completed master's thesis on computer vision applications in materials science",
+          "Participated in competitive hackathons demonstrating practical AI implementation skills",
+          "Developed multiple end-to-end ML applications from concept to deployment",
+          "Published research work combining AI with traditional engineering domains",
+          "Achieved excellent academic performance in both engineering and computer science courses"
+        ],
+        goals: [
+          "I'm passionate about advancing AI applications in engineering and materials science",
+          "I want to contribute to cutting-edge research in computer vision and machine learning",
+          "I aim to bridge the gap between traditional engineering and modern AI technologies",
+          "I'm interested in developing sustainable AI solutions for industrial applications",
+          "I want to mentor others in AI/ML and share knowledge with the community"
+        ]
+      };
+
+      function getAdvancedResponse(userMessage) {
+        const message = userMessage.toLowerCase();
+
+        // Personal information and introduction
+        if (message.includes('name') || message.includes('who are you') || message.includes('introduce') || message.includes('tell me about yourself')) {
+          const responses = [
+            `Hi! I'm ${aiKnowledge.personal.name}, a ${aiKnowledge.personal.title} based in ${aiKnowledge.personal.location}. ${aiKnowledge.personal.background}`,
+            `I'm ${aiKnowledge.personal.name}! ${aiKnowledge.personal.personality} I specialize in AI/ML applications and have a unique background combining chemical engineering with modern AI technologies.`,
+            `Hello! I'm ${aiKnowledge.personal.name}, passionate about AI and engineering. I have 3+ years of experience in computer vision, LLMs, and data-driven applications. I'm currently based in ${aiKnowledge.personal.location}.`
+          ];
+          return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        // Languages and communication
+        if (message.includes('language') || message.includes('speak') || message.includes('fluent') || message.includes('multilingual')) {
+          return `I'm multilingual and can communicate in ${aiKnowledge.personal.languages.join(', ')}. This helps me collaborate effectively in international research and development environments.`;
+        }
+
+        // Interests and hobbies
+        if (message.includes('interest') || message.includes('hobby') || message.includes('passion') || message.includes('like to do')) {
+          return `My main interests include ${aiKnowledge.personal.interests.join(', ')}. I'm particularly passionate about exploring how AI can solve traditional engineering challenges and advance materials science research.`;
+        }
+
+        // Education related
+        if (message.includes('education') || message.includes('degree') || message.includes('university') || message.includes('study') || message.includes('background') || message.includes('academic')) {
+          if (message.includes('master') || message.includes('msc') || message.includes('rwth') || message.includes('aachen') || message.includes('thesis')) {
+            const responses = [
+              `I completed my ${aiKnowledge.education.masters.degree} at ${aiKnowledge.education.masters.university} (${aiKnowledge.education.masters.period}). My specialization was in ${aiKnowledge.education.masters.specialization}, focusing on ${aiKnowledge.education.masters.focus}.`,
+              `My master's thesis was on "${aiKnowledge.education.masters.thesis}" - a practical application of deep learning in materials science. I studied at ${aiKnowledge.education.masters.university} with ${aiKnowledge.education.masters.gpa}.`,
+              `At ${aiKnowledge.education.masters.university}, I pursued ${aiKnowledge.education.masters.degree} with courses in ${aiKnowledge.education.masters.courses.join(', ')}. My research focused on computer vision applications in engineering.`
+            ];
+            return responses[Math.floor(Math.random() * responses.length)];
+          }
+          if (message.includes('bachelor') || message.includes('bsc') || message.includes('ncku') || message.includes('taiwan') || message.includes('undergraduate')) {
+            return `I earned my ${aiKnowledge.education.bachelors.degree} from ${aiKnowledge.education.bachelors.university} (${aiKnowledge.education.bachelors.period}). My studies focused on ${aiKnowledge.education.bachelors.focus}, including courses in ${aiKnowledge.education.bachelors.courses.join(', ')}.`;
+          }
+          return `I have a strong academic background combining engineering and AI. I completed my M.Sc. in Simulation Sciences at RWTH Aachen University and my B.Sc. in Chemical Engineering at National Cheng Kung University. This unique combination allows me to apply AI to engineering problems effectively.`;
+        }
+
+        // Skills and expertise
+        if (message.includes('skill') || message.includes('technology') || message.includes('tech') || message.includes('programming') || message.includes('expertise') || message.includes('proficient')) {
+          if (message.includes('soft') || message.includes('communication') || message.includes('team') || message.includes('interpersonal') || message.includes('leadership')) {
+            return aiKnowledge.skills.soft[Math.floor(Math.random() * aiKnowledge.skills.soft.length)];
+          }
+          if (message.includes('tool') || message.includes('software') || message.includes('framework') || message.includes('library')) {
+            return `I work with various tools and technologies including ${aiKnowledge.skills.tools.join(', ')}. I'm particularly experienced with Python ecosystem for AI/ML development.`;
+          }
+          if (message.includes('python') || message.includes('tensorflow') || message.includes('ml') || message.includes('machine learning')) {
+            return "I specialize in Python development with extensive experience in TensorFlow, machine learning, and data analysis. I'm particularly strong in computer vision applications and building LLM systems using RAG techniques.";
+          }
+          if (message.includes('computer vision') || message.includes('yolo') || message.includes('segmentation') || message.includes('opencv')) {
+            return "My computer vision expertise includes YOLO-based instance segmentation, particularly for particle size analysis. I've developed real-time dashboard applications for ore particle size distribution analysis using deep learning techniques.";
+          }
+          if (message.includes('llm') || message.includes('rag') || message.includes('generative ai') || message.includes('chatbot')) {
+            return "I'm proficient in building LLM applications using RAG (Retrieval-Augmented Generation) and fine-tuning techniques. I've built vehicle recommendation systems and customer experience improvement tools using generative AI.";
+          }
+          if (message.includes('cloud') || message.includes('aws') || message.includes('deployment') || message.includes('production')) {
+            return "I have experience with cloud platforms like AWS for deploying and scaling machine learning applications. I can build end-to-end ML pipelines from development to production deployment.";
+          }
+          return aiKnowledge.skills.technical[Math.floor(Math.random() * aiKnowledge.skills.technical.length)];
+        }
+
+        // Projects and work
+        if (message.includes('project') || message.includes('work') || message.includes('portfolio') || message.includes('built') || message.includes('developed') || message.includes('created')) {
+          if (message.includes('particle') || message.includes('yolo') || message.includes('segmentation') || message.includes('computer vision') || message.includes('thesis')) {
+            return aiKnowledge.projects.computerVision[Math.floor(Math.random() * aiKnowledge.projects.computerVision.length)];
+          }
+          if (message.includes('vehicle') || message.includes('recommendation') || message.includes('llm') || message.includes('rag') || message.includes('chatbot')) {
+            return aiKnowledge.projects.llm[Math.floor(Math.random() * aiKnowledge.projects.llm.length)];
+          }
+          if (message.includes('quantum') || message.includes('simulation') || message.includes('kernel') || message.includes('regression') || message.includes('polymer')) {
+            return aiKnowledge.projects.ml[Math.floor(Math.random() * aiKnowledge.projects.ml.length)];
+          }
+          if (message.includes('hackathon') || message.includes('competition') || message.includes('team')) {
+            return aiKnowledge.projects.hackathon[Math.floor(Math.random() * aiKnowledge.projects.hackathon.length)];
+          }
+          if (message.includes('recent') || message.includes('latest') || message.includes('current')) {
+            return "My most recent work includes the particle size analysis project using YOLO, the vehicle recommendation system with RAG, and contributions to the EESTec Hackathon. I'm always working on new AI applications!";
+          }
+          return "I've worked on several interesting projects including a vehicle recommendation system using RAG, particle size analysis with computer vision, and quantum mechanical simulation with machine learning. Which area interests you most?";
+        }
+
+        // Experience and career
+        if (message.includes('experience') || message.includes('years') || message.includes('career') || message.includes('work history') || message.includes('professional')) {
+          return aiKnowledge.experience[Math.floor(Math.random() * aiKnowledge.experience.length)];
+        }
+
+        // Achievements and accomplishments
+        if (message.includes('achievement') || message.includes('accomplishment') || message.includes('success') || message.includes('milestone') || message.includes('proud')) {
+          return aiKnowledge.achievements[Math.floor(Math.random() * aiKnowledge.achievements.length)];
+        }
+
+        // Goals and aspirations
+        if (message.includes('goal') || message.includes('aspiration') || message.includes('future') || message.includes('plan') || message.includes('dream')) {
+          return aiKnowledge.goals[Math.floor(Math.random() * aiKnowledge.goals.length)];
+        }
+
+        // Contact and networking
+        if (message.includes('contact') || message.includes('email') || message.includes('reach') || message.includes('hire') || message.includes('get in touch') || message.includes('connect')) {
+          return aiKnowledge.contact[Math.floor(Math.random() * aiKnowledge.contact.length)];
+        }
+
+        // Location and availability
+        if (message.includes('where') || message.includes('location') || message.includes('based') || message.includes('aachen') || message.includes('germany') || message.includes('remote')) {
+          const responses = [
+            `I'm currently based in ${aiKnowledge.personal.location}. I'm open to remote opportunities and collaborations in AI/ML, particularly those that combine engineering applications with cutting-edge AI technologies.`,
+            `I live in ${aiKnowledge.personal.location} and I'm available for remote work opportunities. I'm particularly interested in international collaborations in AI research and development.`,
+            `Based in ${aiKnowledge.personal.location}, I'm flexible with remote work arrangements and enjoy collaborating with teams worldwide on AI/ML projects.`
+          ];
+          return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        // Research interests and specialization
+        if (message.includes('research') || message.includes('interest') || message.includes('focus') || message.includes('specialization') || message.includes('domain')) {
+          return "My research interests lie at the intersection of AI and engineering, particularly in computer vision for materials science, LLM applications in engineering domains, and high-performance computing for simulation sciences. I'm especially interested in applying machine learning to polymer applications and quantum mechanical simulations.";
+        }
+
+        // Industry and applications
+        if (message.includes('industry') || message.includes('application') || message.includes('real world') || message.includes('practical') || message.includes('commercial')) {
+          return "I've applied AI in various industries including materials science (particle analysis), automotive (vehicle recommendations), and customer service (generative AI). My work focuses on practical, real-world applications that solve actual engineering problems.";
+        }
+
+        // Collaboration and teamwork
+        if (message.includes('team') || message.includes('collaborate') || message.includes('work together') || message.includes('group') || message.includes('partnership')) {
+          return "I enjoy collaborative work and have experience in team environments from hackathons, research projects, and international collaborations. I'm comfortable working with diverse teams and can communicate technical concepts clearly to different audiences.";
+        }
+
+        // Learning and growth
+        if (message.includes('learn') || message.includes('growth') || message.includes('improve') || message.includes('develop') || message.includes('evolve')) {
+          return "I'm constantly learning and staying updated with the latest AI/ML technologies. I believe in continuous improvement and enjoy exploring new research areas, particularly at the intersection of AI and traditional engineering domains.";
+        }
+
+        // Challenges and problem-solving
+        if (message.includes('challenge') || message.includes('problem') || message.includes('difficult') || message.includes('solve') || message.includes('overcome')) {
+          return "I enjoy tackling complex challenges, especially those that require interdisciplinary thinking. My background in both engineering and AI helps me approach problems from multiple angles and find innovative solutions.";
+        }
+
+        // Default responses - more contextual and varied
+        const defaultResponses = [
+          "That's an interesting question! Given my background in simulation sciences and AI, I'd be happy to tell you more about my specific projects, research interests, or technical skills. What would you like to know?",
+          "Great question! I have experience in computer vision, LLMs, and machine learning applications. Would you like to hear about my particle size analysis project, vehicle recommendation system, or quantum simulation work?",
+          "I love discussing my work at the intersection of AI and engineering! I can tell you about my computer vision research, LLM applications, or how I apply machine learning to materials science. What interests you most?",
+          "Excellent question! My background combines chemical engineering with modern AI technologies. I'd be happy to share details about my projects, research, or how I bridge these two domains. What would you prefer to learn about?",
+          "That's a thoughtful question! I can share insights about my AI/ML work, educational background, research projects, or career goals. What aspect would you like to explore further?",
+          "Interesting! I have diverse experience spanning computer vision, LLMs, and engineering applications. I'd be happy to discuss any of these areas or answer other questions about my work and background."
+        ];
+
+        return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+      }
+
+      function addAdvancedMessage(content, isUser = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
+
+        const avatar = document.createElement('div');
+        avatar.className = 'message-avatar';
+        avatar.textContent = isUser ? '👤' : '🤖';
+
+        const messageContent = document.createElement('div');
+        messageContent.className = 'message-content';
+
+        const messageText = document.createElement('div');
+        messageText.className = 'message-text';
+        messageText.textContent = content;
+
+        const messageTime = document.createElement('div');
+        messageTime.className = 'message-time';
+        messageTime.textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+        messageContent.appendChild(messageText);
+        messageContent.appendChild(messageTime);
+
+        messageDiv.appendChild(avatar);
+        messageDiv.appendChild(messageContent);
+
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      function showTypingIndicator() {
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'message ai-message typing-indicator-container';
+        typingDiv.id = 'typing-indicator';
+
+        const avatar = document.createElement('div');
+        avatar.className = 'message-avatar';
+        avatar.textContent = '🤖';
+
+        const typingIndicator = document.createElement('div');
+        typingIndicator.className = 'typing-indicator';
+        typingIndicator.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+
+        typingDiv.appendChild(avatar);
+        typingDiv.appendChild(typingIndicator);
+
+        chatMessages.appendChild(typingDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      function hideTypingIndicator() {
+        const typingIndicator = document.getElementById('typing-indicator');
+        if (typingIndicator) {
+          typingIndicator.remove();
+        }
+      }
+
+      function sendAdvancedMessage() {
+        const message = chatInput.value.trim();
+        if (message) {
+          addAdvancedMessage(message, true);
+          chatInput.value = '';
+
+          // Show typing indicator
+          showTypingIndicator();
+
+          // Simulate AI thinking
+          setTimeout(() => {
+            hideTypingIndicator();
+            const response = getAdvancedResponse(message);
+            addAdvancedMessage(response, false);
+          }, 1500 + Math.random() * 1000); // Random delay between 1.5-2.5 seconds
+        }
+      }
+
+      // Event listeners
+      chatToggle.addEventListener('click', () => {
+        chatWidget.classList.add('active');
+      });
+
+      closeBtn.addEventListener('click', () => {
+        chatWidget.classList.remove('active');
+      });
+
+      sendBtn.addEventListener('click', sendAdvancedMessage);
+
+      chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          sendAdvancedMessage();
+        }
+      });
+
+      // Quick question buttons
+      quickBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const question = this.getAttribute('data-question');
+          addAdvancedMessage(question, true);
+
+          showTypingIndicator();
+
+          setTimeout(() => {
+            hideTypingIndicator();
+            const response = getAdvancedResponse(question);
+            addAdvancedMessage(response, false);
+          }, 1500);
+        });
+      });
+
+      // Project filter functionality
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const projectCards = document.querySelectorAll('.project-card');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const filter = this.getAttribute('data-filter');
+
+          // Update active button
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+
+          // Filter projects
+          projectCards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Smooth scrolling for navigation
+      const navLinks = document.querySelectorAll('a[href^="#"]');
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+
+          if (targetSection) {
+            targetSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

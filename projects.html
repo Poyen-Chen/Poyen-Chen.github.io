@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects - Po-Yen Chen</title>
+  <meta name="description" content="Po-Yen Chen's portfolio of projects in AI, web development, and engineering">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="site-title">
+          <a href="index.html">Po-Yen Chen</a>
+        </div>
+        <nav class="site-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="site-main">
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Projects</h1>
+      </div>
+    </section>
+
+    <!-- Project Categories -->
+    <section class="container">
+      <div class="category-filters">
+        <button class="filter-btn active" data-category="all">All Projects</button>
+        <button class="filter-btn" data-category="ai-ml">AI & ML</button>
+        <button class="filter-btn" data-category="web-dev">Web Development</button>
+        <button class="filter-btn" data-category="research">Research</button>
+      </div>
+    </section>
+
+    <!-- AI & ML Projects -->
+    <section class="container">
+      <div class="projects-grid">
+        <!-- Particle Size Analysis -->
+        <div class="project-card" data-category="ai-ml research">
+          <div class="project-image">
+            <i class="fas fa-microscope"></i>
+          </div>
+          <div class="project-content">
+            <h3>Particle Size Distribution Analysis</h3>
+            <p>Developed a YOLO-based instance segmentation approach for automated particle size analysis in waste management applications.</p>
+            <div class="project-tags">
+              <span class="tag">YOLO</span>
+              <span class="tag">Deep Learning</span>
+              <span class="tag">Python</span>
+              <span class="tag">Plotly</span>
+              <span class="tag">Instance Segmentation</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Poyen-Chen/master_thesis" target="_blank" class="btn btn-primary">
+                <i class="fab fa-github"></i> View Project
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vehicle Recommendation System -->
+        <div class="project-card" data-category="ai-ml web-dev">
+          <div class="project-image">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="project-content">
+            <h3>Vehicle Recommendation System</h3>
+            <p>Built chatbot using Streamlit. Customized a text embedding model using both Retrieval-Augmented Generation (RAG) and fine-tuning large language model (LLM) approaches to deliver truly and insightful refined customer data.</p>
+            <div class="project-tags">
+              <span class="tag">Streamlit</span>
+              <span class="tag">RAG</span>
+              <span class="tag">LLM</span>
+              <span class="tag">Python</span>
+              <span class="tag">AWS</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Poyen-Chen/TW-Porsche" target="_blank" class="btn btn-primary">
+                <i class="fab fa-github"></i> View Project
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer Experience AI -->
+        <div class="project-card" data-category="ai-ml web-dev">
+            <div class="project-image">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="project-content">
+              <h3>Improving Customer Experience with Generative AI</h3>
+              <p>Web-scraped customer queries from the service website, designed the application integrating the LLM model, and performed prompt engineering to enhance the quality of online customer service.</p>
+              <div class="project-tags">
+                <span class="tag">web-scraping</span>
+                <span class="tag">fine-tuning</span>
+                <span class="tag">LLM</span>
+                <span class="tag">Python</span>
+                <span class="tag">prompt engineering</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/gary8564/2024-EESTec-Hackathon" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-github"></i> View Project
+                </a>
+              </div>
+            </div>
+          </div>
+
+        <!-- Machine Learning Pipeline -->
+        <div class="project-card" data-category="ai-ml engineering">
+          <div class="project-image">
+            <i class="fas fa-atom"></i>
+          </div>
+          <div class="project-content">
+            <h3>Machine Learning Applied on Quantum Mechanical Simulation</h3>
+            <p>Established structure property relationships for efficient magnetic property prediction by using kernel ridge regression.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">Kernel ridge regression</span>
+              <span class="tag">DFT</span>
+              <span class="tag">AiiDA</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Poyen-Chen/sisclab2022-project6-git-main" target="_blank" class="btn btn-primary">
+                <i class="fab fa-github"></i> View Project
+              </a>
+            </div>
+          </div>
+        </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Po-Yen Chen</h3>
+          <p>Full Stack Developer & AI Enthusiast</p>
+        </div>
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <div class="social-links">
+            <a href="mailto:sam9960628@gmail.com">
+              <i class="fas fa-envelope"></i>
+              Email
+            </a>
+            <a href="https://github.com/Poyen-Chen">
+              <i class="fab fa-github"></i>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/po-yen-chen-311bb114a/">
+              <i class="fab fa-linkedin"></i>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; Updated in July 2025 Po-Yen Chen. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AI Chat Widget -->
+  <div id="ai-chat-toggle" class="ai-chat-toggle">
+    <div class="toggle-content">
+      <span class="toggle-icon">🤖</span>
+      <span class="toggle-text">Ask AI</span>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Project filtering functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const projectCards = document.querySelectorAll('.project-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const category = this.getAttribute('data-category');
+
+          // Update active button
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+
+          // Filter projects
+          projectCards.forEach(card => {
+            const cardCategories = card.getAttribute('data-category').split(' ');
+            if (category === 'all' || cardCategories.includes(category)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

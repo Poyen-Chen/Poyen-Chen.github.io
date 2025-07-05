@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact - Po-Yen Chen</title>
+  <meta name="description" content="Get in touch with Po-Yen Chen for collaboration, opportunities, or questions">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="site-title">
+          <a href="index.html">Po-Yen Chen</a>
+        </div>
+        <nav class="site-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="site-main">
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Contact</h1>
+      </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="card">
+            <h2>Contact Information</h2>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h3>Email</h3>
+                <p><a href="mailto:sam9960628@gmail.com">sam9960628@gmail.com</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h3>Location</h3>
+                <p>Aachen, Germany</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-clock"></i>
+              <div>
+                <h3>Availability</h3>
+                <p>Open to work</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <div class="card">
+            <h2>Send a Message</h2>
+            <form id="contactForm" class="form">
+              <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject">
+              </div>
+              <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="button" id="submitBtn" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Links -->
+    <section class="container">
+      <div class="card">
+        <h2>Connect With Me</h2>
+        <div class="social-grid">
+          <a href="https://github.com/Poyen-Chen" class="social-card">
+            <i class="fab fa-github"></i>
+            <h3>GitHub</h3>
+            <p>Check out my projects</p>
+          </a>
+          <a href="https://www.linkedin.com/in/po-yen-chen-311bb114a/" class="social-card">
+            <i class="fab fa-linkedin"></i>
+            <h3>LinkedIn</h3>
+            <p>Let's connect</p>
+          </a>
+          <a href="mailto:sam9960628@gmail.com" class="social-card">
+            <i class="fas fa-envelope"></i>
+            <h3>Email</h3>
+            <p>Direct communication</p>
+          </a>
+          <a href="files/CV_PY_Chen.pdf" target="_blank" class="social-card">
+            <i class="fas fa-file-alt"></i>
+            <h3>Resume</h3>
+            <p>Download my latest CV</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Po-Yen Chen</h3>
+          <p>Full Stack Developer & AI Enthusiast</p>
+        </div>
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <div class="social-links">
+            <a href="mailto:sam9960628@gmail.com">
+              <i class="fas fa-envelope"></i>
+              Email
+            </a>
+            <a href="https://github.com/Poyen-Chen">
+              <i class="fab fa-github"></i>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/po-yen-chen-311bb114a/">
+              <i class="fab fa-linkedin"></i>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; Updated in July 2025 Po-Yen Chen. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AI Chat Widget -->
+  <div id="ai-chat-toggle" class="ai-chat-toggle">
+    <div class="toggle-content">
+      <span class="toggle-icon">🤖</span>
+      <span class="toggle-text">Ask AI</span>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Contact Form with Direct Email Submission
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Contact form script loaded');
+
+      // Get the submit button
+      const submitBtn = document.getElementById('submitBtn');
+      if (!submitBtn) {
+        console.error('Submit button not found');
+        return;
+      }
+
+      // Add click event listener to button
+      submitBtn.addEventListener('click', function() {
+        console.log('Submit button clicked');
+
+        // Get form elements
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const subjectInput = document.getElementById('subject');
+        const messageInput = document.getElementById('message');
+
+        console.log('Form elements found:', {
+          name: !!nameInput,
+          email: !!emailInput,
+          subject: !!subjectInput,
+          message: !!messageInput
+        });
+
+        // Get values
+        const name = nameInput ? nameInput.value.trim() : '';
+        const email = emailInput ? emailInput.value.trim() : '';
+        const subject = subjectInput ? subjectInput.value.trim() : '';
+        const message = messageInput ? messageInput.value.trim() : '';
+
+        console.log('Form values:', { name, email, subject, message });
+        console.log('Name length:', name.length);
+        console.log('Email length:', email.length);
+        console.log('Message length:', message.length);
+
+        // Validate
+        if (!name) {
+          alert('Please enter your name.');
+          if (nameInput) nameInput.focus();
+          return;
+        }
+
+        if (!email) {
+          alert('Please enter your email address.');
+          if (emailInput) emailInput.focus();
+          return;
+        }
+
+        if (!message) {
+          alert('Please enter your message.');
+          if (messageInput) messageInput.focus();
+          return;
+        }
+
+        // Email format validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert('Please enter a valid email address.');
+          if (emailInput) emailInput.focus();
+          return;
+        }
+
+        console.log('Validation passed, processing...');
+
+        // Show loading state
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        // Send email directly using EmailJS (free service)
+        sendEmailDirectly(name, email, subject, message, submitBtn);
+      });
+
+      function sendEmailDirectly(name, email, subject, message, submitBtn) {
+        console.log('Sending email with content:', { name, email, subject, message });
+
+        // Create a simple email submission using a reliable service
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('subject', subject || 'Contact from Portfolio');
+        formData.append('message', message);
+
+        // Use a simple and reliable email service
+        fetch('https://formspree.io/f/xpzgwqjq', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+        .then(response => {
+          console.log('Email service response:', response);
+
+          if (response.ok) {
+            console.log('Email sent successfully');
+            alert(`✅ Message sent successfully!
+
+📧 Your message has been delivered to sam9960628@gmail.com
+
+Thank you for contacting me! I'll get back to you soon.`);
+
+            // Reset form
+            const form = document.getElementById('contactForm');
+            if (form) {
+              form.reset();
+              console.log('Form reset after successful email');
+            }
+          } else {
+            console.error('Email service failed');
+            throw new Error('Email service failed');
+          }
+        })
+        .catch(error => {
+          console.error('Error sending email:', error);
+
+          // Show contact information with copy option
+          showContactInfo(name, email, subject, message);
+        })
+        .finally(() => {
+          // Restore button
+          submitBtn.textContent = 'Send Message';
+          submitBtn.disabled = false;
+        });
+      }
+
+      function showContactInfo(name, email, subject, message) {
+        const formattedMessage = `Name: ${name}\nEmail: ${email}\nSubject: ${subject || 'Contact from Portfolio'}\n\nMessage:\n${message}`;
+
+        const contactInfo = `
+          <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h3>📧 Contact Information</h3>
+            <p><strong>Email:</strong> sam9960628@gmail.com</p>
+            <p><strong>Subject:</strong> ${subject || 'Contact from Portfolio'}</p>
+            <hr>
+            <h4>Your Message:</h4>
+            <p><strong>From:</strong> ${name} (${email})</p>
+            <p><strong>Message:</strong></p>
+            <div style="background: white; padding: 15px; border-radius: 5px; border-left: 4px solid #64b5f6; margin: 10px 0;">
+              ${message.replace(/\n/g, '<br>')}
+            </div>
+            <hr>
+            <div style="text-align: center; margin: 20px 0;">
+              <button onclick="copyToClipboard('${formattedMessage.replace(/'/g, "\\'")}')" style="background: #64b5f6; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 5px;">
+                📋 Copy Message
+              </button>
+              <a href="mailto:sam9960628@gmail.com?subject=${encodeURIComponent(subject || 'Contact from Portfolio')}&body=${encodeURIComponent(formattedMessage)}" style="background: #28a745; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; margin: 5px; display: inline-block;">
+                📧 Open Email Client
+              </a>
+            </div>
+            <p style="text-align: center; color: #666;">
+              Please send this message to <strong>sam9960628@gmail.com</strong>
+            </p>
+          </div>
+        `;
+
+        // Create modal
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,0.5);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 1000;
+        `;
+
+        const modalContent = document.createElement('div');
+        modalContent.style.cssText = `
+          background: white;
+          padding: 30px;
+          border-radius: 10px;
+          max-width: 600px;
+          max-height: 80vh;
+          overflow-y: auto;
+          position: relative;
+        `;
+
+        modalContent.innerHTML = `
+          <button onclick="this.parentElement.parentElement.remove()" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer;">×</button>
+          ${contactInfo}
+        `;
+
+        modal.appendChild(modalContent);
+        document.body.appendChild(modal);
+
+        alert('Direct email sending is not available. Please use the options below to send your message.');
+      }
+
+      // Function to copy text to clipboard
+      function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function() {
+          alert('Message copied to clipboard! You can now paste it in your email client.');
+        }, function(err) {
+          console.error('Could not copy text: ', err);
+          alert('Copy failed. Please manually copy the message.');
+        });
+      }
+
+      console.log('Contact form handler setup complete');
+    });
+  </script>
+</body>
+</html>

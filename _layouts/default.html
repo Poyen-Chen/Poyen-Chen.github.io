@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="{{ site.locale | slice: 0,2 | default: "en" }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="{{ '/images/favicon.ico' | relative_url }}">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  {% if site.google_analytics %}
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
+  {% endif %}
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="site-title">
+          <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        </div>
+        <nav class="site-nav">
+          <ul>
+            <li><a href="{{ '/' | relative_url }}">Home</a></li>
+            <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+            <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
+            <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+            <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="site-main">
+    {{ content }}
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>{{ site.author.name }}</h3>
+          <p>{{ site.author.bio }}</p>
+        </div>
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <div class="social-links">
+            {% for link in site.author.links %}
+            <a href="{{ link.url }}" target="_blank" rel="noopener">
+              <i class="{{ link.icon }}"></i>
+              {{ link.label }}
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Advanced AI Chat Widget -->
+  {% include advanced-ai-chat.html %}
+
+  <!-- JavaScript -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

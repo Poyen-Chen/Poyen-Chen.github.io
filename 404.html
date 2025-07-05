@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page Not Found - Po-Yen Chen</title>
+  <script>
+    // GitHub Pages 404 handling for SPA routing
+    // This script redirects 404s to the main page and lets client-side routing handle the path
+
+    // Get the current path
+    const path = window.location.pathname;
+
+    // If it's not the root path, redirect to main page with the path as a query parameter
+    if (path !== '/') {
+      // Store the intended path in sessionStorage
+      sessionStorage.setItem('redirectPath', path);
+
+      // Redirect to the main page
+      window.location.href = '/';
+    } else {
+      // If we're already on the main page, check if there's a stored redirect path
+      const redirectPath = sessionStorage.getItem('redirectPath');
+      if (redirectPath) {
+        sessionStorage.removeItem('redirectPath');
+
+        // Update the URL without page reload
+        window.history.replaceState({}, '', redirectPath);
+
+        // Trigger the router to handle the path
+        if (window.portfolioRouter) {
+          window.portfolioRouter.handleRoute(redirectPath);
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #1a1a1a;
+      color: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .loading {
+      font-size: 1.2rem;
+    }
+    .spinner {
+      border: 3px solid #404040;
+      border-top: 3px solid #667eea;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="spinner"></div>
+    <div class="loading">Redirecting to portfolio...</div>
+  </div>
+</body>
+</html>
