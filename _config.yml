@@ -1,8 +1,8 @@
 # Site settings
-title: "Your Name"
-name: "Your Name"
+title: "Po-Yen Chen"
+name: "Po-Yen Chen"
 description: "Personal portfolio and academic website"
-url: "https://yourusername.github.io" # the base hostname & protocol for your site
+url: "https://poyen-chen.github.io" # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog/
 
 # Build settings
@@ -40,44 +40,41 @@ paginate_path: /blog/page:num/
 
 # Social media
 twitter:
-  username: yourtwitterhandle
+  username:
   card: summary
 
 # Google Analytics
-google_analytics: UA-XXXXXXXX-X
+google_analytics:
 
 # Author information
 author:
-  name: "Your Name"
-  avatar: "bio-photo.jpg"
-  bio: "Your bio here"
-  location: "Your Location"
+  name: "Po-Yen Chen"
+  avatar: "images/profile.jpg"
+  bio: "Full Stack Developer & AI Enthusiast"
+  location: "Aachen, Germany"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:your.email@example.com"
+      url: "mailto:sam9960628@gmail.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/yourusername"
+      url: "https://github.com/Poyen-Chen"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/in/yourusername"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/yourtwitterhandle"
+      url: "https://www.linkedin.com/in/po-yen-chen-311bb114a/"
 
 # Site footer
 footer:
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:your.email@example.com"
+      url: "mailto:sam9960628@gmail.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/yourusername"
+      url: "https://github.com/Poyen-Chen"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/in/yourusername"
+      url: "https://www.linkedin.com/in/po-yen-chen-311bb114a/"
 
 # Defaults
 defaults:
