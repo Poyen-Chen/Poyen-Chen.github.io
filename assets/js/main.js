@@ -22,14 +22,14 @@
                 </div>
                 <div class="chat-input-area">
                     <div class="quick-questions">
-                        <button class="quick-btn" onclick="askQuestion('Tell me about your background')" data-i18n-zh="背景">Background</button>
-                        <button class="quick-btn" onclick="askQuestion('What are your skills?')" data-i18n-zh="技能">Skills</button>
-                        <button class="quick-btn" onclick="askQuestion('Show me your projects')" data-i18n-zh="作品">Projects</button>
-                        <button class="quick-btn" onclick="askQuestion('How can I contact you?')" data-i18n-zh="聯絡">Contact</button>
-                        <button class="quick-btn" onclick="askQuestion('Tell me about your education')" data-i18n-zh="學歷">Education</button>
-                        <button class="quick-btn" onclick="askQuestion('What is your experience?')" data-i18n-zh="經歷">Experience</button>
-                        <button class="quick-btn" onclick="askQuestion('Tell me about AI and machine learning')" data-i18n-zh="AI/ML">AI/ML</button>
-                        <button class="quick-btn" onclick="askQuestion('What is your tech stack?')" data-i18n-zh="技術棧">Tech Stack</button>
+                        <button class="quick-btn" onclick="askQuestion('background')" data-i18n-zh="背景">Background</button>
+                        <button class="quick-btn" onclick="askQuestion('skills')" data-i18n-zh="技能">Skills</button>
+                        <button class="quick-btn" onclick="askQuestion('projects')" data-i18n-zh="作品">Projects</button>
+                        <button class="quick-btn" onclick="askQuestion('contact')" data-i18n-zh="聯絡">Contact</button>
+                        <button class="quick-btn" onclick="askQuestion('education')" data-i18n-zh="學歷">Education</button>
+                        <button class="quick-btn" onclick="askQuestion('experience')" data-i18n-zh="經歷">Experience</button>
+                        <button class="quick-btn" onclick="askQuestion('aiml')" data-i18n-zh="AI/ML">AI/ML</button>
+                        <button class="quick-btn" onclick="askQuestion('techstack')" data-i18n-zh="技術棧">Tech Stack</button>
                     </div>
                     <div class="input-group">
                         <input type="text" id="chat-input" placeholder="Ask me anything..." data-i18n-placeholder-zh="有什麼想問的嗎..." onkeypress="handleKeyPress(event)" />
@@ -79,10 +79,31 @@
         }
     };
 
-    window.askQuestion = function(question) {
-        addMessage(question, 'user');
+    const QUICK_QUESTIONS = {
+        background: { en: 'Tell me about your background',     zh: '介紹你的背景' },
+        skills:     { en: 'What are your skills?',             zh: '你有哪些技能?' },
+        projects:   { en: 'Show me your projects',             zh: '介紹你的作品' },
+        contact:    { en: 'How can I contact you?',            zh: '要怎麼聯絡你?' },
+        education:  { en: 'Tell me about your education',      zh: '介紹你的學歷' },
+        experience: { en: 'What is your experience?',          zh: '你的工作經歷?' },
+        aiml:       { en: 'Tell me about AI and machine learning', zh: '談談 AI 與機器學習' },
+        techstack:  { en: 'What is your tech stack?',          zh: '你的技術棧是什麼?' }
+    };
+
+    function resolveQuestion(keyOrText) {
+        const entry = QUICK_QUESTIONS[keyOrText];
+        if (entry) {
+            const lang = (localStorage.getItem('lang') === 'zh') ? 'zh' : 'en';
+            return { shown: entry[lang], matcher: entry.en };
+        }
+        return { shown: keyOrText, matcher: keyOrText };
+    }
+
+    window.askQuestion = function(keyOrText) {
+        const { shown, matcher } = resolveQuestion(keyOrText);
+        addMessage(shown, 'user');
         setTimeout(() => {
-            const response = getResponse(question);
+            const response = getResponse(matcher);
             addMessage(response, 'ai');
         }, 500);
     };
