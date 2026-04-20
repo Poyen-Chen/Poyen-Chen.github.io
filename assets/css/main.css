@@ -329,12 +329,6 @@ strong { color: var(--text); font-weight: 600; }
   flex-wrap: wrap;
 }
 
-/* Hide hero greeting + subtitle in Traditional Chinese */
-html[lang="zh-Hant"] #home h1,
-html[lang="zh-Hant"] #home > .container > p {
-  display: none;
-}
-
 /* =========================================================================
    Cards
    ========================================================================= */
