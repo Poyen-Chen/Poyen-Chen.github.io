@@ -621,3 +621,45 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// =========================================================================
+// Mobile navigation toggle
+// =========================================================================
+(function() {
+    function initNavToggle() {
+        const toggle = document.querySelector('.nav-toggle');
+        const nav = document.getElementById('site-nav');
+        if (!toggle || !nav) return;
+
+        toggle.addEventListener('click', function() {
+            const open = nav.getAttribute('data-open') === 'true';
+            nav.setAttribute('data-open', String(!open));
+            toggle.setAttribute('aria-expanded', String(!open));
+        });
+
+        // Close the mobile menu when a link is tapped
+        nav.querySelectorAll('a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                nav.setAttribute('data-open', 'false');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Reset when viewport grows past the mobile breakpoint
+        const mq = window.matchMedia('(min-width: 769px)');
+        const reset = function(e) {
+            if (e.matches) {
+                nav.setAttribute('data-open', 'false');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        };
+        if (mq.addEventListener) mq.addEventListener('change', reset);
+        else mq.addListener(reset);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initNavToggle);
+    } else {
+        initNavToggle();
+    }
+})();
