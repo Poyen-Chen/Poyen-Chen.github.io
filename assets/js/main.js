@@ -427,22 +427,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Typing animation for hero section
-    const heroTitle = document.querySelector('.hero h1');
-    if (heroTitle) {
-        const text = heroTitle.textContent;
-        heroTitle.textContent = '';
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                heroTitle.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        };
-        setTimeout(typeWriter, 500);
-    }
-
     // Animate elements on scroll
     const observerOptions = {
         threshold: 0.1,
