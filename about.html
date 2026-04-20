@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About - Po-Yen Chen</title>
+  <title data-i18n-zh="關於 - 陳柏諺">About - Po-Yen Chen</title>
   <meta name="description" content="Learn more about Po-Yen Chen's background, skills, and experience in AI and machine learning">
 
   <!-- Font Awesome -->
@@ -12,6 +12,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -22,19 +23,30 @@
     <div class="container">
       <div class="header-content">
         <div class="site-title">
-          <a href="index.html">Po-Yen Chen</a>
+          <a href="index.html" data-i18n-zh="陳柏諺｜AI工程師">Po-Yen Chen</a>
         </div>
-        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav"><span></span></button>
-        <nav class="site-nav" id="site-nav">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
+        <div class="header-right">
+          <nav class="site-nav" id="site-nav">
+            <ul>
+              <li><a href="index.html" data-i18n-zh="首頁">Home</a></li>
+              <li><a href="about.html" class="active" data-i18n-zh="關於">About</a></li>
+              <li><a href="education.html" data-i18n-zh="學歷">Education</a></li>
+              <li><a href="projects.html" data-i18n-zh="作品">Projects</a></li>
+              <li><a href="blog.html" data-i18n-zh="部落格">Blog</a></li>
+              <li><a href="contact.html" data-i18n-zh="聯絡">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="lang-switcher" data-open="false">
+            <button class="lang-toggle" aria-label="Language" aria-haspopup="true" aria-expanded="false">
+              <span class="lang-current">EN</span>
+            </button>
+            <div class="lang-menu" role="menu">
+              <button class="lang-option" data-lang="en" role="menuitem">English</button>
+              <button class="lang-option" data-lang="zh" role="menuitem">繁體中文</button>
+            </div>
+          </div>
+          <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+        </div>
       </div>
     </div>
   </header>
@@ -44,7 +56,7 @@
     <!-- Page Header -->
     <section class="page-header">
       <div class="container">
-        <h1>About Me</h1>
+        <h1 data-i18n-zh="關於我">About Me</h1>
       </div>
     </section>
 
@@ -56,17 +68,17 @@
             <img src="images/profile.jpg" alt="Po-Yen Chen" class="profile-image">
           </div>
           <div class="about-text">
-            <h2>Who I Am</h2>
-            <p>I'm a master's graduate in Simulation Sciences with a background in data specialization and computational engineering. With 3+ years of experience in LLMs, computer vision, and data-driven applications like document summarization, recommendation systems, and instance segmentation.</p>
+            <h2 data-i18n-zh="我是誰">Who I Am</h2>
+            <p data-i18n-zh="我是模擬科學碩士畢業,具備資料科學與計算工程背景。擁有 3 年以上 LLM、電腦視覺與資料驅動應用的經驗,包含文件摘要、推薦系統與實例分割。">I'm a master's graduate in Simulation Sciences with a background in data specialization and computational engineering. With 3+ years of experience in LLMs, computer vision, and data-driven applications like document summarization, recommendation systems, and instance segmentation.</p>
 
-            <p>I'm skilled in building ML pipelines, real-time web apps, and interactive dashboards. Proficient in Python and cloud platforms.</p>
+            <p data-i18n-zh="擅長建構 ML pipeline、即時網頁應用與互動式儀表板,精通 Python 與雲端平台。">I'm skilled in building ML pipelines, real-time web apps, and interactive dashboards. Proficient in Python and cloud platforms.</p>
 
             <div class="skills">
-              <h3>Technical Skills</h3>
+              <h3 data-i18n-zh="技術能力">Technical Skills</h3>
               <div class="skill-tags">
                 <span class="tag">Python</span>
                 <span class="tag">TensorFlow</span>
-                <span class="tag">Computer Vision</span>
+                <span class="tag" data-i18n-zh="電腦視覺">Computer Vision</span>
                 <span class="tag">LLMs</span>
                 <span class="tag">RAG</span>
                 <span class="tag">Streamlit</span>
@@ -78,11 +90,11 @@
             </div>
 
             <div class="skills">
-              <h3>Soft Skills</h3>
+              <h3 data-i18n-zh="軟實力">Soft Skills</h3>
               <div class="skill-tags">
-                <span class="tag">Problem Solving</span>
-                <span class="tag">Team Collaboration</span>
-                <span class="tag">Communication</span>
+                <span class="tag" data-i18n-zh="問題解決">Problem Solving</span>
+                <span class="tag" data-i18n-zh="團隊協作">Team Collaboration</span>
+                <span class="tag" data-i18n-zh="溝通">Communication</span>
               </div>
             </div>
           </div>
@@ -93,23 +105,23 @@
     <!-- Experience Section -->
     <section class="container">
       <div class="card">
-        <h2>Professional Experience</h2>
+        <h2 data-i18n-zh="專業經歷">Professional Experience</h2>
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-date">10.2021 - 03.2025</div>
             <div class="timeline-content">
-              <h3>Academic Research</h3>
+              <h3 data-i18n-zh="學術研究">Academic Research</h3>
               <p><strong>RWTH Lab Projects</strong></p>
-              <p>Conduct 3+ research projects in computer vision and machine learning applications. Developed end-to-end ML pipelines and real-time applications.</p>
+              <p data-i18n-zh="參與 3 個以上電腦視覺與機器學習研究專案,建構端到端 ML pipeline 與即時應用。">Conduct 3+ research projects in computer vision and machine learning applications. Developed end-to-end ML pipelines and real-time applications.</p>
             </div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-date">10.2024-01.2025</div>
             <div class="timeline-content">
-              <h3>Hackathon Participation</h3>
+              <h3 data-i18n-zh="黑客松參與">Hackathon Participation</h3>
               <p><strong>Porsche Digital Campus Challenge</strong></p>
-              <p>Participated in competitive hackathons, demonstrating practical LLM chatbot implementation skills and collaborative problem-solving abilities.</p>
+              <p data-i18n-zh="參與競賽型黑客松,展現實際的 LLM 聊天機器人實作能力與協作解題能力。">Participated in competitive hackathons, demonstrating practical LLM chatbot implementation skills and collaborative problem-solving abilities.</p>
             </div>
           </div>
 
@@ -120,30 +132,30 @@
     <!-- Interests Section -->
     <section class="container">
       <div class="card">
-        <h2>Research Interests</h2>
+        <h2 data-i18n-zh="研究興趣">Research Interests</h2>
         <div class="grid">
           <div class="interest-card">
             <i class="fas fa-eye"></i>
-            <h3>Computer Vision</h3>
-            <p>YOLO-based instance segmentation, object detection, and real-time image processing applications in industrial settings.</p>
+            <h3 data-i18n-zh="電腦視覺">Computer Vision</h3>
+            <p data-i18n-zh="基於 YOLO 的實例分割、物件偵測,以及工業場景的即時影像處理應用。">YOLO-based instance segmentation, object detection, and real-time image processing applications in industrial settings.</p>
           </div>
 
           <div class="interest-card">
             <i class="fas fa-brain"></i>
-            <h3>Large Language Models</h3>
-            <p>RAG (Retrieval-Augmented Generation), fine-tuning techniques, and conversational AI systems for practical applications.</p>
+            <h3 data-i18n-zh="大型語言模型">Large Language Models</h3>
+            <p data-i18n-zh="RAG(檢索增強生成)、微調技術,以及實用導向的對話式 AI 系統。">RAG (Retrieval-Augmented Generation), fine-tuning techniques, and conversational AI systems for practical applications.</p>
           </div>
 
           <div class="interest-card">
             <i class="fas fa-atom"></i>
-            <h3>Materials Science</h3>
-            <p>Applying machine learning to polymer applications, quantum mechanical simulations, and structure-property relationships.</p>
+            <h3 data-i18n-zh="材料科學">Materials Science</h3>
+            <p data-i18n-zh="將機器學習應用於高分子、量子力學模擬與結構-性質關聯。">Applying machine learning to polymer applications, quantum mechanical simulations, and structure-property relationships.</p>
           </div>
 
           <div class="interest-card">
             <i class="fas fa-server"></i>
-            <h3>High-Performance Computing</h3>
-            <p>Parallel computing, numerical optimization, and scalable AI applications for engineering simulations.</p>
+            <h3 data-i18n-zh="高效能運算">High-Performance Computing</h3>
+            <p data-i18n-zh="平行運算、數值最佳化,以及面向工程模擬的可擴展 AI 應用。">Parallel computing, numerical optimization, and scalable AI applications for engineering simulations.</p>
           </div>
         </div>
       </div>
@@ -155,29 +167,29 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>Po-Yen Chen</h3>
-          <p>Full Stack Developer & AI Enthusiast</p>
+          <h3 data-i18n-zh="陳柏諺">Po-Yen Chen</h3>
+          <p data-i18n-zh="AI 工程師・全端開發者">Full Stack Developer & AI Enthusiast</p>
         </div>
         <div class="footer-section">
-          <h3>Connect</h3>
+          <h3 data-i18n-zh="聯繫">Connect</h3>
           <div class="social-links">
             <a href="mailto:sam9960628@gmail.com">
               <i class="fas fa-envelope"></i>
-              Email
+              <span>Email</span>
             </a>
             <a href="https://github.com/Poyen-Chen">
               <i class="fab fa-github"></i>
-              GitHub
+              <span>GitHub</span>
             </a>
             <a href="https://www.linkedin.com/in/po-yen-chen-311bb114a/">
               <i class="fab fa-linkedin"></i>
-              LinkedIn
+              <span>LinkedIn</span>
             </a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; Updated in April 2026 Po-Yen Chen. All rights reserved.</p>
+        <p data-i18n-zh="© 更新於 2026 年 4 月　陳柏諺 版權所有">&copy; Updated in April 2026 Po-Yen Chen. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -186,7 +198,7 @@
   <div id="ai-chat-toggle" class="ai-chat-toggle">
     <div class="toggle-content">
       <span class="toggle-icon">🤖</span>
-      <span class="toggle-text">Ask AI</span>
+      <span class="toggle-text" data-i18n-zh="問 AI">Ask AI</span>
     </div>
   </div>
 

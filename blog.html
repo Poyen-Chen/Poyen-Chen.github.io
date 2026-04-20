@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog - Po-Yen Chen</title>
+  <title data-i18n-zh="部落格 - 陳柏諺">Blog - Po-Yen Chen</title>
   <meta name="description" content="Po-Yen Chen's blog featuring articles on AI, machine learning, and technology">
 
   <!-- Font Awesome -->
@@ -12,6 +12,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -22,19 +23,30 @@
     <div class="container">
       <div class="header-content">
         <div class="site-title">
-          <a href="index.html">Po-Yen Chen</a>
+          <a href="index.html" data-i18n-zh="陳柏諺｜AI工程師">Po-Yen Chen</a>
         </div>
-        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav"><span></span></button>
-        <nav class="site-nav" id="site-nav">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="blog.html" class="active">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
+        <div class="header-right">
+          <nav class="site-nav" id="site-nav">
+            <ul>
+              <li><a href="index.html" data-i18n-zh="首頁">Home</a></li>
+              <li><a href="about.html" data-i18n-zh="關於">About</a></li>
+              <li><a href="education.html" data-i18n-zh="學歷">Education</a></li>
+              <li><a href="projects.html" data-i18n-zh="作品">Projects</a></li>
+              <li><a href="blog.html" class="active" data-i18n-zh="部落格">Blog</a></li>
+              <li><a href="contact.html" data-i18n-zh="聯絡">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="lang-switcher" data-open="false">
+            <button class="lang-toggle" aria-label="Language" aria-haspopup="true" aria-expanded="false">
+              <span class="lang-current">EN</span>
+            </button>
+            <div class="lang-menu" role="menu">
+              <button class="lang-option" data-lang="en" role="menuitem">English</button>
+              <button class="lang-option" data-lang="zh" role="menuitem">繁體中文</button>
+            </div>
+          </div>
+          <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+        </div>
       </div>
     </div>
   </header>
@@ -44,7 +56,7 @@
     <!-- Page Header -->
     <section class="page-header">
       <div class="container">
-        <h1>Blog</h1>
+        <h1 data-i18n-zh="部落格">Blog</h1>
       </div>
     </section>
 
@@ -53,41 +65,41 @@
       <!-- Featured Post -->
       <div class="card featured-post">
         <div class="post-meta">
-          <span class="post-date">04.2023 - Present</span>
-          <span class="post-category">Community & Web Development</span>
+          <span class="post-date" data-i18n-zh="2023.04 - 至今">04.2023 - Present</span>
+          <span class="post-category" data-i18n-zh="社群與網頁開發">Community & Web Development</span>
         </div>
-        <h2>Supporting the Taiwanese Community: My Role as Web Maintainer for TWSV Aachen</h2>
-        <p class="post-excerpt">
+        <h2 data-i18n-zh="支持台灣社群:擔任德國阿亨台灣同學會(TWSV Aachen)網站維護者">Supporting the Taiwanese Community: My Role as Web Maintainer for TWSV Aachen</h2>
+        <p class="post-excerpt" data-i18n-zh="很高興分享自 2023 年起擔任德國阿亨台灣同學會(TWSV Aachen)網站維護者的經驗。這個角色讓我能將技術與對在德台灣社群的支持結合在一起。">
           I'm excited to share my involvement with the Taiwanese Student Association Aachen (TWSV Aachen) as their web maintainer since 2023. This role allows me to combine my technical skills with my passion for supporting the Taiwanese community in Germany.
         </p>
 
         <div class="post-content">
-          <p>
+          <p data-i18n-zh="身為在阿亨的台灣學生,我重視社群與文化連結。很榮幸能為「德國阿亨台灣同學會(TWSV Aachen e.V.)」擔任網站維護者,為這個連結台灣學生與國際社群的活躍社團貢獻一份力量。">
             As a Taiwanese student in Aachen, I value community and cultural connection. I'm proud to serve as the web maintainer for the <a href="https://twsv.rwth-aachen.de/en/english/" target="_blank">Taiwanese Student Association Aachen e.V.</a>, contributing to this vibrant community that bridges Taiwanese students and the international community.
           </p>
 
-          <h3>About TWSV Aachen</h3>
-          <p>
+          <h3 data-i18n-zh="關於 TWSV Aachen">About TWSV Aachen</h3>
+          <p data-i18n-zh="德國阿亨台灣同學會(德國阿亨台灣同學會)透過迎新派對、台灣之夜、聖誕聚會與農曆新年慶祝等活動,推廣文化交流與友誼。">
             The Taiwanese Student Association Aachen (德國阿亨台灣同學會) promotes cultural exchange and friendship through various events including welcome parties, Taiwan Night celebrations, Christmas gatherings, and Lunar New Year celebrations.
           </p>
 
-          <h3>My Role as Web Maintainer</h3>
-          <p>
+          <h3 data-i18n-zh="我的網站維護者角色">My Role as Web Maintainer</h3>
+          <p data-i18n-zh="身為網站維護者,我負責:">
             As the web maintainer, I'm responsible for:
           </p>
           <ul>
-            <li>Maintaining and updating the official website</li>
-            <li>Managing content updates and event announcements</li>
+            <li data-i18n-zh="維護與更新官方網站">Maintaining and updating the official website</li>
+            <li data-i18n-zh="管理內容更新與活動公告">Managing content updates and event announcements</li>
           </ul>
 
-          <p>
+          <p data-i18n-zh="這個角色結合了我的全端開發背景與為社群服務的承諾,能用技術協助連結台灣學生、在阿亨推廣我們的文化,對我來說很有意義。">
             This role aligns with my full-stack development background and commitment to serving the community. It's rewarding to use my technical skills to help connect Taiwanese students and promote our culture in Aachen.
           </p>
 
           <div class="post-cta">
             <a href="https://twsv.rwth-aachen.de/en/english/" target="_blank" class="btn btn-primary">
               <i class="fas fa-external-link-alt"></i>
-              Visit TWSV Aachen Website
+              <span data-i18n-zh="造訪 TWSV Aachen 網站">Visit TWSV Aachen Website</span>
             </a>
           </div>
         </div>
@@ -96,11 +108,11 @@
       <!-- Additional Blog Post Placeholder -->
       <div class="card blog-post">
         <div class="post-meta">
-          <span class="post-date">Coming Soon</span>
-          <span class="post-category">Content Creation</span>
+          <span class="post-date" data-i18n-zh="敬請期待">Coming Soon</span>
+          <span class="post-category" data-i18n-zh="內容創作">Content Creation</span>
         </div>
-        <h2>Video Editing and Podcast Projects</h2>
-        <p class="post-excerpt">
+        <h2 data-i18n-zh="影像剪輯與 Podcast 專案">Video Editing and Podcast Projects</h2>
+        <p class="post-excerpt" data-i18n-zh="閒暇時間我喜歡剪輯影片與製作 Podcast。未來會在這裡分享一些創作,包含教學、技術討論與幕後花絮。">
           In my spare time, I enjoy editing videos and creating podcasts. I'll be sharing some of my creative projects here soon, including tutorials, tech discussions, and behind-the-scenes content.
         </p>
       </div>
@@ -112,29 +124,29 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>Po-Yen Chen</h3>
-          <p>Full Stack Developer & AI Enthusiast</p>
+          <h3 data-i18n-zh="陳柏諺">Po-Yen Chen</h3>
+          <p data-i18n-zh="AI 工程師・全端開發者">Full Stack Developer & AI Enthusiast</p>
         </div>
         <div class="footer-section">
-          <h3>Connect</h3>
+          <h3 data-i18n-zh="聯繫">Connect</h3>
           <div class="social-links">
             <a href="mailto:sam9960628@gmail.com">
               <i class="fas fa-envelope"></i>
-              Email
+              <span>Email</span>
             </a>
             <a href="https://github.com/Poyen-Chen">
               <i class="fab fa-github"></i>
-              GitHub
+              <span>GitHub</span>
             </a>
             <a href="https://www.linkedin.com/in/po-yen-chen-311bb114a/">
               <i class="fab fa-linkedin"></i>
-              LinkedIn
+              <span>LinkedIn</span>
             </a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; Updated in April 2026 Po-Yen Chen. All rights reserved.</p>
+        <p data-i18n-zh="© 更新於 2026 年 4 月　陳柏諺 版權所有">&copy; Updated in April 2026 Po-Yen Chen. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -143,7 +155,7 @@
   <div id="ai-chat-toggle" class="ai-chat-toggle">
     <div class="toggle-content">
       <span class="toggle-icon">🤖</span>
-      <span class="toggle-text">Ask AI</span>
+      <span class="toggle-text" data-i18n-zh="問 AI">Ask AI</span>
     </div>
   </div>
 

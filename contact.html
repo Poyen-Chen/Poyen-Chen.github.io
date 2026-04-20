@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact - Po-Yen Chen</title>
+  <title data-i18n-zh="聯絡 - 陳柏諺">Contact - Po-Yen Chen</title>
   <meta name="description" content="Get in touch with Po-Yen Chen for collaboration, opportunities, or questions">
 
   <!-- Font Awesome -->
@@ -12,6 +12,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -22,19 +23,30 @@
     <div class="container">
       <div class="header-content">
         <div class="site-title">
-          <a href="index.html">Po-Yen Chen</a>
+          <a href="index.html" data-i18n-zh="陳柏諺｜AI工程師">Po-Yen Chen</a>
         </div>
-        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav"><span></span></button>
-        <nav class="site-nav" id="site-nav">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-          </ul>
-        </nav>
+        <div class="header-right">
+          <nav class="site-nav" id="site-nav">
+            <ul>
+              <li><a href="index.html" data-i18n-zh="首頁">Home</a></li>
+              <li><a href="about.html" data-i18n-zh="關於">About</a></li>
+              <li><a href="education.html" data-i18n-zh="學歷">Education</a></li>
+              <li><a href="projects.html" data-i18n-zh="作品">Projects</a></li>
+              <li><a href="blog.html" data-i18n-zh="部落格">Blog</a></li>
+              <li><a href="contact.html" class="active" data-i18n-zh="聯絡">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="lang-switcher" data-open="false">
+            <button class="lang-toggle" aria-label="Language" aria-haspopup="true" aria-expanded="false">
+              <span class="lang-current">EN</span>
+            </button>
+            <div class="lang-menu" role="menu">
+              <button class="lang-option" data-lang="en" role="menuitem">English</button>
+              <button class="lang-option" data-lang="zh" role="menuitem">繁體中文</button>
+            </div>
+          </div>
+          <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+        </div>
       </div>
     </div>
   </header>
@@ -44,7 +56,7 @@
     <!-- Page Header -->
     <section class="page-header">
       <div class="container">
-        <h1>Contact</h1>
+        <h1 data-i18n-zh="聯絡">Contact</h1>
       </div>
     </section>
 
@@ -53,7 +65,7 @@
       <div class="contact-grid">
         <div class="contact-info">
           <div class="card">
-            <h2>Contact Information</h2>
+            <h2 data-i18n-zh="聯絡資訊">Contact Information</h2>
             <div class="contact-item">
               <i class="fas fa-envelope"></i>
               <div>
@@ -64,15 +76,15 @@
             <div class="contact-item">
               <i class="fas fa-map-marker-alt"></i>
               <div>
-                <h3>Location</h3>
-                <p>Aachen, Germany</p>
+                <h3 data-i18n-zh="所在地">Location</h3>
+                <p data-i18n-zh="德國 阿亨">Aachen, Germany</p>
               </div>
             </div>
             <div class="contact-item">
               <i class="fas fa-clock"></i>
               <div>
-                <h3>Availability</h3>
-                <p>Open to work</p>
+                <h3 data-i18n-zh="目前狀態">Availability</h3>
+                <p data-i18n-zh="開放合作">Open to work</p>
               </div>
             </div>
           </div>
@@ -80,10 +92,10 @@
 
         <div class="contact-form">
           <div class="card">
-            <h2>Send a Message</h2>
+            <h2 data-i18n-zh="傳送訊息">Send a Message</h2>
             <form id="contactForm" class="form">
               <div class="form-group">
-                <label for="name">Name *</label>
+                <label for="name" data-i18n-zh="姓名 *">Name *</label>
                 <input type="text" id="name" name="name" required>
               </div>
               <div class="form-group">
@@ -91,14 +103,14 @@
                 <input type="email" id="email" name="email" required>
               </div>
               <div class="form-group">
-                <label for="subject">Subject</label>
+                <label for="subject" data-i18n-zh="主旨">Subject</label>
                 <input type="text" id="subject" name="subject">
               </div>
               <div class="form-group">
-                <label for="message">Message *</label>
+                <label for="message" data-i18n-zh="訊息 *">Message *</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
               </div>
-              <button type="button" id="submitBtn" class="btn btn-primary">Send Message</button>
+              <button type="button" id="submitBtn" class="btn btn-primary" data-i18n-zh="送出訊息">Send Message</button>
             </form>
           </div>
         </div>
@@ -108,27 +120,27 @@
     <!-- Social Links -->
     <section class="container">
       <div class="card">
-        <h2>Connect With Me</h2>
+        <h2 data-i18n-zh="跟我聯繫">Connect With Me</h2>
         <div class="social-grid">
           <a href="https://github.com/Poyen-Chen" class="social-card">
             <i class="fab fa-github"></i>
             <h3>GitHub</h3>
-            <p>Check out my projects</p>
+            <p data-i18n-zh="查看我的專案">Check out my projects</p>
           </a>
           <a href="https://www.linkedin.com/in/po-yen-chen-311bb114a/" class="social-card">
             <i class="fab fa-linkedin"></i>
             <h3>LinkedIn</h3>
-            <p>Let's connect</p>
+            <p data-i18n-zh="一起連結">Let's connect</p>
           </a>
           <a href="mailto:sam9960628@gmail.com" class="social-card">
             <i class="fas fa-envelope"></i>
             <h3>Email</h3>
-            <p>Direct communication</p>
+            <p data-i18n-zh="直接聯絡">Direct communication</p>
           </a>
           <a href="files/CV_PY_Chen.pdf" target="_blank" class="social-card">
             <i class="fas fa-file-alt"></i>
-            <h3>Resume</h3>
-            <p>Download my latest CV</p>
+            <h3 data-i18n-zh="履歷">Resume</h3>
+            <p data-i18n-zh="下載最新履歷">Download my latest CV</p>
           </a>
         </div>
       </div>
@@ -140,29 +152,29 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>Po-Yen Chen</h3>
-          <p>Full Stack Developer & AI Enthusiast</p>
+          <h3 data-i18n-zh="陳柏諺">Po-Yen Chen</h3>
+          <p data-i18n-zh="AI 工程師・全端開發者">Full Stack Developer & AI Enthusiast</p>
         </div>
         <div class="footer-section">
-          <h3>Connect</h3>
+          <h3 data-i18n-zh="聯繫">Connect</h3>
           <div class="social-links">
             <a href="mailto:sam9960628@gmail.com">
               <i class="fas fa-envelope"></i>
-              Email
+              <span>Email</span>
             </a>
             <a href="https://github.com/Poyen-Chen">
               <i class="fab fa-github"></i>
-              GitHub
+              <span>GitHub</span>
             </a>
             <a href="https://www.linkedin.com/in/po-yen-chen-311bb114a/">
               <i class="fab fa-linkedin"></i>
-              LinkedIn
+              <span>LinkedIn</span>
             </a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; Updated in April 2026 Po-Yen Chen. All rights reserved.</p>
+        <p data-i18n-zh="© 更新於 2026 年 4 月　陳柏諺 版權所有">&copy; Updated in April 2026 Po-Yen Chen. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -171,7 +183,7 @@
   <div id="ai-chat-toggle" class="ai-chat-toggle">
     <div class="toggle-content">
       <span class="toggle-icon">🤖</span>
-      <span class="toggle-text">Ask AI</span>
+      <span class="toggle-text" data-i18n-zh="問 AI">Ask AI</span>
     </div>
   </div>
 
@@ -198,23 +210,11 @@
         const subjectInput = document.getElementById('subject');
         const messageInput = document.getElementById('message');
 
-        console.log('Form elements found:', {
-          name: !!nameInput,
-          email: !!emailInput,
-          subject: !!subjectInput,
-          message: !!messageInput
-        });
-
         // Get values
         const name = nameInput ? nameInput.value.trim() : '';
         const email = emailInput ? emailInput.value.trim() : '';
         const subject = subjectInput ? subjectInput.value.trim() : '';
         const message = messageInput ? messageInput.value.trim() : '';
-
-        console.log('Form values:', { name, email, subject, message });
-        console.log('Name length:', name.length);
-        console.log('Email length:', email.length);
-        console.log('Message length:', message.length);
 
         // Validate
         if (!name) {
@@ -243,27 +243,22 @@
           return;
         }
 
-        console.log('Validation passed, processing...');
-
         // Show loading state
+        const origText = submitBtn.textContent;
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
 
         // Send email directly using EmailJS (free service)
-        sendEmailDirectly(name, email, subject, message, submitBtn);
+        sendEmailDirectly(name, email, subject, message, submitBtn, origText);
       });
 
-      function sendEmailDirectly(name, email, subject, message, submitBtn) {
-        console.log('Sending email with content:', { name, email, subject, message });
-
-        // Create a simple email submission using a reliable service
+      function sendEmailDirectly(name, email, subject, message, submitBtn, origText) {
         const formData = new FormData();
         formData.append('name', name);
         formData.append('email', email);
         formData.append('subject', subject || 'Contact from Portfolio');
         formData.append('message', message);
 
-        // Use a simple and reliable email service
         fetch('https://formspree.io/f/xpzgwqjq', {
           method: 'POST',
           body: formData,
@@ -272,36 +267,21 @@
           }
         })
         .then(response => {
-          console.log('Email service response:', response);
-
           if (response.ok) {
-            console.log('Email sent successfully');
-            alert(`✅ Message sent successfully!
+            alert(`✅ Message sent successfully!\n\n📧 Your message has been delivered to sam9960628@gmail.com\n\nThank you for contacting me! I'll get back to you soon.`);
 
-📧 Your message has been delivered to sam9960628@gmail.com
-
-Thank you for contacting me! I'll get back to you soon.`);
-
-            // Reset form
             const form = document.getElementById('contactForm');
-            if (form) {
-              form.reset();
-              console.log('Form reset after successful email');
-            }
+            if (form) form.reset();
           } else {
-            console.error('Email service failed');
             throw new Error('Email service failed');
           }
         })
         .catch(error => {
           console.error('Error sending email:', error);
-
-          // Show contact information with copy option
           showContactInfo(name, email, subject, message);
         })
         .finally(() => {
-          // Restore button
-          submitBtn.textContent = 'Send Message';
+          submitBtn.textContent = origText;
           submitBtn.disabled = false;
         });
       }
@@ -318,15 +298,15 @@ Thank you for contacting me! I'll get back to you soon.`);
             <h4>Your Message:</h4>
             <p><strong>From:</strong> ${name} (${email})</p>
             <p><strong>Message:</strong></p>
-            <div style="background: white; padding: 15px; border-radius: 5px; border-left: 4px solid #64b5f6; margin: 10px 0;">
+            <div style="background: white; padding: 15px; border-radius: 5px; border-left: 4px solid #D97706; margin: 10px 0;">
               ${message.replace(/\n/g, '<br>')}
             </div>
             <hr>
             <div style="text-align: center; margin: 20px 0;">
-              <button onclick="copyToClipboard('${formattedMessage.replace(/'/g, "\\'")}')" style="background: #64b5f6; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 5px;">
+              <button onclick="copyToClipboard('${formattedMessage.replace(/'/g, "\\'")}')" style="background: #D97706; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 5px;">
                 📋 Copy Message
               </button>
-              <a href="mailto:sam9960628@gmail.com?subject=${encodeURIComponent(subject || 'Contact from Portfolio')}&body=${encodeURIComponent(formattedMessage)}" style="background: #28a745; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; margin: 5px; display: inline-block;">
+              <a href="mailto:sam9960628@gmail.com?subject=${encodeURIComponent(subject || 'Contact from Portfolio')}&body=${encodeURIComponent(formattedMessage)}" style="background: #059669; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; margin: 5px; display: inline-block;">
                 📧 Open Email Client
               </a>
             </div>
@@ -336,7 +316,6 @@ Thank you for contacting me! I'll get back to you soon.`);
           </div>
         `;
 
-        // Create modal
         const modal = document.createElement('div');
         modal.style.cssText = `
           position: fixed;
@@ -373,17 +352,13 @@ Thank you for contacting me! I'll get back to you soon.`);
         alert('Direct email sending is not available. Please use the options below to send your message.');
       }
 
-      // Function to copy text to clipboard
       function copyToClipboard(text) {
         navigator.clipboard.writeText(text).then(function() {
           alert('Message copied to clipboard! You can now paste it in your email client.');
         }, function(err) {
-          console.error('Could not copy text: ', err);
           alert('Copy failed. Please manually copy the message.');
         });
       }
-
-      console.log('Contact form handler setup complete');
     });
   </script>
 </body>

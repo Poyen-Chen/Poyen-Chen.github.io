@@ -9,31 +9,31 @@
         const chatHTML = `
             <div id="ai-chat-widget" class="ai-chat-widget" style="display: none;">
                 <div class="chat-header">
-                    <h3>🤖 AI Assistant</h3>
+                    <h3 data-i18n-zh="🤖 AI 助理">🤖 AI Assistant</h3>
                     <button id="chat-close" class="chat-close" onclick="closeChat()">×</button>
                 </div>
                 <div class="chat-messages" id="chat-messages">
                     <div class="chat-message ai-message">
                         <div class="message-content">
                             <span class="message-icon">🤖</span>
-                            <div class="message-text">Hi! I'm Po-Yen's AI assistant. Ask me anything about his background, skills, or projects!</div>
+                            <div class="message-text" data-i18n-zh="你好！我是陳柏諺的 AI 助理,歡迎詢問關於他的背景、技能或作品的任何問題！">Hi! I'm Po-Yen's AI assistant. Ask me anything about his background, skills, or projects!</div>
                         </div>
                     </div>
                 </div>
                 <div class="chat-input-area">
                     <div class="quick-questions">
-                        <button class="quick-btn" onclick="askQuestion('Tell me about your background')">Background</button>
-                        <button class="quick-btn" onclick="askQuestion('What are your skills?')">Skills</button>
-                        <button class="quick-btn" onclick="askQuestion('Show me your projects')">Projects</button>
-                        <button class="quick-btn" onclick="askQuestion('How can I contact you?')">Contact</button>
-                        <button class="quick-btn" onclick="askQuestion('Tell me about your education')">Education</button>
-                        <button class="quick-btn" onclick="askQuestion('What is your experience?')">Experience</button>
-                        <button class="quick-btn" onclick="askQuestion('Tell me about AI and machine learning')">AI/ML</button>
-                        <button class="quick-btn" onclick="askQuestion('What is your tech stack?')">Tech Stack</button>
+                        <button class="quick-btn" onclick="askQuestion('Tell me about your background')" data-i18n-zh="背景">Background</button>
+                        <button class="quick-btn" onclick="askQuestion('What are your skills?')" data-i18n-zh="技能">Skills</button>
+                        <button class="quick-btn" onclick="askQuestion('Show me your projects')" data-i18n-zh="作品">Projects</button>
+                        <button class="quick-btn" onclick="askQuestion('How can I contact you?')" data-i18n-zh="聯絡">Contact</button>
+                        <button class="quick-btn" onclick="askQuestion('Tell me about your education')" data-i18n-zh="學歷">Education</button>
+                        <button class="quick-btn" onclick="askQuestion('What is your experience?')" data-i18n-zh="經歷">Experience</button>
+                        <button class="quick-btn" onclick="askQuestion('Tell me about AI and machine learning')" data-i18n-zh="AI/ML">AI/ML</button>
+                        <button class="quick-btn" onclick="askQuestion('What is your tech stack?')" data-i18n-zh="技術棧">Tech Stack</button>
                     </div>
                     <div class="input-group">
-                        <input type="text" id="chat-input" placeholder="Ask me anything..." onkeypress="handleKeyPress(event)" />
-                        <button id="chat-send" onclick="sendMessage()">Send</button>
+                        <input type="text" id="chat-input" placeholder="Ask me anything..." data-i18n-placeholder-zh="有什麼想問的嗎..." onkeypress="handleKeyPress(event)" />
+                        <button id="chat-send" onclick="sendMessage()" data-i18n-zh="送出">Send</button>
                     </div>
                 </div>
             </div>
@@ -661,5 +661,99 @@ document.head.appendChild(style);
         document.addEventListener('DOMContentLoaded', initNavToggle);
     } else {
         initNavToggle();
+    }
+})();
+
+// =========================================================================
+// Language switcher (i18n) — EN / 繁體中文
+// =========================================================================
+(function() {
+    const STORAGE_KEY = 'lang';
+    const DEFAULT_LANG = 'en';
+    const LABELS = { en: 'EN', zh: '繁中' };
+    const HTML_LANG = { en: 'en', zh: 'zh-Hant' };
+
+    function applyLang(lang) {
+        document.documentElement.setAttribute('lang', HTML_LANG[lang] || 'en');
+
+        // Text content
+        document.querySelectorAll('[data-i18n-zh]').forEach(function(el) {
+            if (!el.hasAttribute('data-i18n-en')) {
+                el.setAttribute('data-i18n-en', el.textContent.trim());
+            }
+            const val = el.getAttribute('data-i18n-' + lang);
+            if (val !== null) el.textContent = val;
+        });
+
+        // Placeholders
+        document.querySelectorAll('[data-i18n-placeholder-zh]').forEach(function(el) {
+            if (!el.hasAttribute('data-i18n-placeholder-en')) {
+                el.setAttribute('data-i18n-placeholder-en', el.getAttribute('placeholder') || '');
+            }
+            const val = el.getAttribute('data-i18n-placeholder-' + lang);
+            if (val !== null) el.setAttribute('placeholder', val);
+        });
+
+        // Page <title>
+        const titleEl = document.querySelector('title');
+        if (titleEl && titleEl.hasAttribute('data-i18n-zh')) {
+            if (!titleEl.hasAttribute('data-i18n-en')) {
+                titleEl.setAttribute('data-i18n-en', titleEl.textContent.trim());
+            }
+            titleEl.textContent = titleEl.getAttribute('data-i18n-' + lang) || titleEl.getAttribute('data-i18n-en');
+        }
+
+        // Switcher label
+        document.querySelectorAll('.lang-current').forEach(function(el) {
+            el.textContent = LABELS[lang] || LABELS.en;
+        });
+
+        // Active option
+        document.querySelectorAll('.lang-option').forEach(function(el) {
+            el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+        });
+    }
+
+    function initLang() {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        const lang = (stored === 'zh' || stored === 'en') ? stored : DEFAULT_LANG;
+        applyLang(lang);
+
+        const switcher = document.querySelector('.lang-switcher');
+        const toggle = switcher ? switcher.querySelector('.lang-toggle') : null;
+
+        if (toggle && switcher) {
+            toggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const open = switcher.getAttribute('data-open') === 'true';
+                switcher.setAttribute('data-open', String(!open));
+                toggle.setAttribute('aria-expanded', String(!open));
+            });
+            document.addEventListener('click', function() {
+                switcher.setAttribute('data-open', 'false');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        }
+
+        document.querySelectorAll('.lang-option').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const newLang = btn.getAttribute('data-lang');
+                if (newLang === 'en' || newLang === 'zh') {
+                    localStorage.setItem(STORAGE_KEY, newLang);
+                    applyLang(newLang);
+                }
+                if (switcher && toggle) {
+                    switcher.setAttribute('data-open', 'false');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLang);
+    } else {
+        initLang();
     }
 })();

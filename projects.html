@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Projects - Po-Yen Chen</title>
+  <title data-i18n-zh="作品 - 陳柏諺">Projects - Po-Yen Chen</title>
   <meta name="description" content="Po-Yen Chen's portfolio of projects in AI, web development, and engineering">
 
   <!-- Font Awesome -->
@@ -12,6 +12,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -22,19 +23,30 @@
     <div class="container">
       <div class="header-content">
         <div class="site-title">
-          <a href="index.html">Po-Yen Chen</a>
+          <a href="index.html" data-i18n-zh="陳柏諺｜AI工程師">Po-Yen Chen</a>
         </div>
-        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav"><span></span></button>
-        <nav class="site-nav" id="site-nav">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="projects.html" class="active">Projects</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
+        <div class="header-right">
+          <nav class="site-nav" id="site-nav">
+            <ul>
+              <li><a href="index.html" data-i18n-zh="首頁">Home</a></li>
+              <li><a href="about.html" data-i18n-zh="關於">About</a></li>
+              <li><a href="education.html" data-i18n-zh="學歷">Education</a></li>
+              <li><a href="projects.html" class="active" data-i18n-zh="作品">Projects</a></li>
+              <li><a href="blog.html" data-i18n-zh="部落格">Blog</a></li>
+              <li><a href="contact.html" data-i18n-zh="聯絡">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="lang-switcher" data-open="false">
+            <button class="lang-toggle" aria-label="Language" aria-haspopup="true" aria-expanded="false">
+              <span class="lang-current">EN</span>
+            </button>
+            <div class="lang-menu" role="menu">
+              <button class="lang-option" data-lang="en" role="menuitem">English</button>
+              <button class="lang-option" data-lang="zh" role="menuitem">繁體中文</button>
+            </div>
+          </div>
+          <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+        </div>
       </div>
     </div>
   </header>
@@ -44,17 +56,17 @@
     <!-- Page Header -->
     <section class="page-header">
       <div class="container">
-        <h1>Projects</h1>
+        <h1 data-i18n-zh="作品">Projects</h1>
       </div>
     </section>
 
     <!-- Project Categories -->
     <section class="container">
       <div class="category-filters">
-        <button class="filter-btn active" data-category="all">All Projects</button>
-        <button class="filter-btn" data-category="ai-ml">AI & ML</button>
-        <button class="filter-btn" data-category="web-dev">Web Development</button>
-        <button class="filter-btn" data-category="research">Research</button>
+        <button class="filter-btn active" data-category="all" data-i18n-zh="全部">All Projects</button>
+        <button class="filter-btn" data-category="ai-ml" data-i18n-zh="AI 與機器學習">AI & ML</button>
+        <button class="filter-btn" data-category="web-dev" data-i18n-zh="網頁開發">Web Development</button>
+        <button class="filter-btn" data-category="research" data-i18n-zh="研究">Research</button>
       </div>
     </section>
 
@@ -67,18 +79,18 @@
             <i class="fas fa-microscope"></i>
           </div>
           <div class="project-content">
-            <h3>Particle Size Distribution Analysis</h3>
-            <p>Developed a YOLO-based instance segmentation approach for automated particle size analysis in waste management applications.</p>
+            <h3 data-i18n-zh="粒徑分佈分析">Particle Size Distribution Analysis</h3>
+            <p data-i18n-zh="開發基於 YOLO 的實例分割方法,應用於廢棄物管理場景的自動化粒徑分析。">Developed a YOLO-based instance segmentation approach for automated particle size analysis in waste management applications.</p>
             <div class="project-tags">
               <span class="tag">YOLO</span>
-              <span class="tag">Deep Learning</span>
+              <span class="tag" data-i18n-zh="深度學習">Deep Learning</span>
               <span class="tag">Python</span>
               <span class="tag">Plotly</span>
-              <span class="tag">Instance Segmentation</span>
+              <span class="tag" data-i18n-zh="實例分割">Instance Segmentation</span>
             </div>
             <div class="project-links">
               <a href="https://github.com/Poyen-Chen/master_thesis" target="_blank" class="btn btn-primary">
-                <i class="fab fa-github"></i> View Project
+                <i class="fab fa-github"></i> <span data-i18n-zh="查看專案">View Project</span>
               </a>
             </div>
           </div>
@@ -90,8 +102,8 @@
             <i class="fas fa-robot"></i>
           </div>
           <div class="project-content">
-            <h3>Vehicle Recommendation System</h3>
-            <p>Built chatbot using Streamlit. Customized a text embedding model using both Retrieval-Augmented Generation (RAG) and fine-tuning large language model (LLM) approaches to deliver truly and insightful refined customer data.</p>
+            <h3 data-i18n-zh="車輛推薦系統">Vehicle Recommendation System</h3>
+            <p data-i18n-zh="使用 Streamlit 建構聊天機器人,結合 RAG 與 LLM 微調技術打造個人化車輛推薦體驗。">Built chatbot using Streamlit. Customized a text embedding model using both Retrieval-Augmented Generation (RAG) and fine-tuning large language model (LLM) approaches to deliver truly and insightful refined customer data.</p>
             <div class="project-tags">
               <span class="tag">Streamlit</span>
               <span class="tag">RAG</span>
@@ -101,7 +113,7 @@
             </div>
             <div class="project-links">
               <a href="https://github.com/Poyen-Chen/TW-Porsche" target="_blank" class="btn btn-primary">
-                <i class="fab fa-github"></i> View Project
+                <i class="fab fa-github"></i> <span data-i18n-zh="查看專案">View Project</span>
               </a>
             </div>
           </div>
@@ -113,18 +125,18 @@
               <i class="fas fa-robot"></i>
             </div>
             <div class="project-content">
-              <h3>Improving Customer Experience with Generative AI</h3>
-              <p>Web-scraped customer queries from the service website, designed the application integrating the LLM model, and performed prompt engineering to enhance the quality of online customer service.</p>
+              <h3 data-i18n-zh="用生成式 AI 提升客戶體驗">Improving Customer Experience with Generative AI</h3>
+              <p data-i18n-zh="爬取客服網站的用戶查詢,整合 LLM 模型並進行 prompt engineering,提升線上客服品質。">Web-scraped customer queries from the service website, designed the application integrating the LLM model, and performed prompt engineering to enhance the quality of online customer service.</p>
               <div class="project-tags">
-                <span class="tag">web-scraping</span>
-                <span class="tag">fine-tuning</span>
+                <span class="tag" data-i18n-zh="網頁爬蟲">web-scraping</span>
+                <span class="tag" data-i18n-zh="微調">fine-tuning</span>
                 <span class="tag">LLM</span>
                 <span class="tag">Python</span>
                 <span class="tag">prompt engineering</span>
               </div>
               <div class="project-links">
                 <a href="https://github.com/gary8564/2024-EESTec-Hackathon" target="_blank" class="btn btn-primary">
-                    <i class="fab fa-github"></i> View Project
+                    <i class="fab fa-github"></i> <span data-i18n-zh="查看專案">View Project</span>
                 </a>
               </div>
             </div>
@@ -136,18 +148,18 @@
             <i class="fas fa-atom"></i>
           </div>
           <div class="project-content">
-            <h3>Machine Learning Applied on Quantum Mechanical Simulation</h3>
-            <p>Established structure property relationships for efficient magnetic property prediction by using kernel ridge regression.</p>
+            <h3 data-i18n-zh="機器學習應用於量子力學模擬">Machine Learning Applied on Quantum Mechanical Simulation</h3>
+            <p data-i18n-zh="建立結構-性質關聯,運用核脊迴歸(kernel ridge regression)有效預測磁性材料特性。">Established structure property relationships for efficient magnetic property prediction by using kernel ridge regression.</p>
             <div class="project-tags">
               <span class="tag">Python</span>
               <span class="tag">Scikit-learn</span>
-              <span class="tag">Kernel ridge regression</span>
+              <span class="tag" data-i18n-zh="核脊迴歸">Kernel ridge regression</span>
               <span class="tag">DFT</span>
               <span class="tag">AiiDA</span>
             </div>
             <div class="project-links">
               <a href="https://github.com/Poyen-Chen/sisclab2022-project6-git-main" target="_blank" class="btn btn-primary">
-                <i class="fab fa-github"></i> View Project
+                <i class="fab fa-github"></i> <span data-i18n-zh="查看專案">View Project</span>
               </a>
             </div>
           </div>
@@ -160,29 +172,29 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>Po-Yen Chen</h3>
-          <p>Full Stack Developer & AI Enthusiast</p>
+          <h3 data-i18n-zh="陳柏諺">Po-Yen Chen</h3>
+          <p data-i18n-zh="AI 工程師・全端開發者">Full Stack Developer & AI Enthusiast</p>
         </div>
         <div class="footer-section">
-          <h3>Connect</h3>
+          <h3 data-i18n-zh="聯繫">Connect</h3>
           <div class="social-links">
             <a href="mailto:sam9960628@gmail.com">
               <i class="fas fa-envelope"></i>
-              Email
+              <span>Email</span>
             </a>
             <a href="https://github.com/Poyen-Chen">
               <i class="fab fa-github"></i>
-              GitHub
+              <span>GitHub</span>
             </a>
             <a href="https://www.linkedin.com/in/po-yen-chen-311bb114a/">
               <i class="fab fa-linkedin"></i>
-              LinkedIn
+              <span>LinkedIn</span>
             </a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; Updated in April 2026 Po-Yen Chen. All rights reserved.</p>
+        <p data-i18n-zh="© 更新於 2026 年 4 月　陳柏諺 版權所有">&copy; Updated in April 2026 Po-Yen Chen. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -191,7 +203,7 @@
   <div id="ai-chat-toggle" class="ai-chat-toggle">
     <div class="toggle-content">
       <span class="toggle-icon">🤖</span>
-      <span class="toggle-text">Ask AI</span>
+      <span class="toggle-text" data-i18n-zh="問 AI">Ask AI</span>
     </div>
   </div>
 
