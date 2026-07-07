@@ -149,59 +149,59 @@
         // Background and About
         if (lowerMessage.includes('background') || lowerMessage.includes('about')) {
             return pickResponse([
-                "I'm Po-Yen Chen, a master's graduate in Simulation Sciences from RWTH Aachen University. I specialize in AI/ML, computer vision, and full-stack development with 3+ years of experience.",
-                "My background combines chemical engineering with cutting-edge AI technologies. I hold an M.Sc. in Simulation Sciences from RWTH Aachen University and have worked on diverse AI/ML applications.",
-                "I'm passionate about applying AI to solve real-world engineering problems. My academic background in chemical engineering gives me a unique perspective on how AI can transform traditional industries.",
-                "I started with chemical engineering at NCKU, then evolved into AI/ML during my master's at RWTH Aachen. This combination allows me to bridge the gap between traditional engineering and modern AI solutions."
+                "I'm Po-Yen Chen, an AI Research Engineer at the Industrial Technology Research Institute (ITRI) in Taiwan, with an M.Sc. in Simulation Sciences from RWTH Aachen University. I work on AI-accelerated simulation (PINNs, operator learning) and production LLM systems.",
+                "My background combines chemical engineering, simulation sciences, and AI. At ITRI I build surrogate models that accelerate molecular dynamics and CFD simulations, plus agentic RAG pipelines for research workflows.",
+                "I'm passionate about applying AI to real-world engineering problems — my chemical engineering roots and simulation background let me bridge physics-based modeling and modern machine learning.",
+                "I started with chemical engineering at NCKU, moved into AI/ML during my master's at RWTH Aachen, and now work at ITRI on scientific machine learning and LLM applications."
             ], [
-                "我是陳柏諺,RWTH Aachen 大學模擬科學碩士,專精 AI/ML、電腦視覺與全端開發,擁有 3 年以上相關經驗。",
-                "我的背景結合化學工程與前沿 AI 技術,擁有 RWTH Aachen 大學模擬科學碩士學位,參與過多個 AI/ML 應用專案。",
-                "我熱衷於把 AI 應用在真實的工程問題上。化工背景讓我能從不同角度思考 AI 如何改變傳統產業。",
-                "從成大化工起步,在 RWTH Aachen 的碩士期間轉向 AI/ML,這個組合讓我能在傳統工程與現代 AI 之間架起橋梁。"
+                "我是陳柏諺,現任工研院 AI 研發工程師,擁有 RWTH Aachen 模擬科學碩士學位。專注於 AI 加速模擬(PINN、operator learning)與生產級 LLM 系統。",
+                "我的背景結合化學工程、模擬科學與 AI。在工研院建構代理模型加速分子動力學與 CFD 模擬,也打造 agentic RAG 研究管線。",
+                "我熱衷於把 AI 應用在真實的工程問題上——化工與模擬背景讓我能在物理建模與現代機器學習之間架橋。",
+                "從成大化工起步,在 RWTH Aachen 碩士期間轉向 AI/ML,現在於工研院從事科學機器學習與 LLM 應用。"
             ]);
         }
 
         // Skills
         if (lowerMessage.includes('skill')) {
             return pickResponse([
-                "My technical skills include Python, TensorFlow, Computer Vision, YOLO, LLMs, RAG, Streamlit, React, Node.js, AWS, Git, SQL, C++, and Docker.",
-                "I'm proficient in Python (my primary language), TensorFlow for ML, Computer Vision with YOLO, LLMs and RAG systems, plus full-stack development with React and Node.js.",
-                "My skill set spans AI/ML (Python, TensorFlow, Computer Vision), cloud services (AWS), version control (Git), databases (SQL), web development (React, Node.js), and containerization (Docker).",
-                "I specialize in Python-based AI/ML, particularly computer vision and LLMs. I also work with modern web technologies, cloud platforms, and have strong software engineering practices."
+                "My technical skills include Python, PyTorch, PINNs and operator learning, computer vision (YOLO), LLMs and agentic RAG, plus a full MLOps toolchain: Docker, Terraform, Airflow, MLflow, DVC, CI/CD, and AWS.",
+                "I'm proficient in Python (my primary language) and PyTorch, with expertise in physics-informed neural networks, operator learning, and agentic RAG systems, backed by strong MLOps practices (Docker, Terraform, Airflow, MLflow).",
+                "My skill set spans scientific ML (PINNs, operator learning, surrogate models), LLM applications (RAG, evals), computer vision (YOLO), and MLOps/DevOps (Docker, Terraform, Airflow, CI/CD, AWS).",
+                "I specialize in Python-based AI/ML — scientific machine learning and LLMs in particular — and I turn research code into production systems with a full MLOps toolchain."
             ], [
-                "技術專長包含 Python、TensorFlow、電腦視覺、YOLO、LLM、RAG、Streamlit、React、Node.js、AWS、Git、SQL、C++ 與 Docker。",
-                "主要使用 Python 做 AI/ML,熟悉 YOLO 電腦視覺、LLM 與 RAG 系統,也熟 React/Node.js 全端開發。",
-                "技能涵蓋 AI/ML(Python、TensorFlow、電腦視覺)、雲端(AWS)、版控(Git)、資料庫(SQL)、網頁開發(React、Node.js)與容器化(Docker)。",
-                "專精 Python 的 AI/ML 開發,尤其是電腦視覺與 LLM,也熟悉現代網頁技術與雲端平台。"
+                "技術專長包含 Python、PyTorch、PINN 與 operator learning、電腦視覺(YOLO)、LLM 與 agentic RAG,以及完整 MLOps 工具鏈:Docker、Terraform、Airflow、MLflow、DVC、CI/CD 與 AWS。",
+                "主要使用 Python 與 PyTorch,專精物理資訊神經網路、operator learning 與 agentic RAG 系統,並有扎實的 MLOps 實務(Docker、Terraform、Airflow、MLflow)。",
+                "技能涵蓋科學機器學習(PINN、operator learning、代理模型)、LLM 應用(RAG、評測)、電腦視覺(YOLO)與 MLOps/DevOps(Docker、Terraform、Airflow、CI/CD、AWS)。",
+                "專精 Python 的 AI/ML 開發,尤其是科學機器學習與 LLM,擅長用完整 MLOps 工具鏈把研究程式碼變成生產系統。"
             ]);
         }
 
         // Projects
         if (lowerMessage.includes('project')) {
             return pickResponse([
-                "My key projects include: 1) Particle Size Analysis using YOLO-based instance segmentation, 2) Vehicle Recommendation System with RAG-powered chatbot, 3) Customer Experience AI with LLM integration, 4) Quantum ML Pipeline for simulation data, and 5) This portfolio website with AI integration!",
-                "I've worked on diverse projects: computer vision applications for materials science, LLM-powered recommendation systems, data processing pipelines, and full-stack web applications including this AI-enhanced portfolio.",
-                "My thesis focused on particle size analysis using YOLO-based instance segmentation for waste management. I've also built recommendation systems with RAG technology, customer service AI, and various web applications.",
-                "Notable projects: AI-powered particle analysis system, intelligent vehicle recommendation chatbot, customer experience AI with web scraping, industrial data processing pipeline, and this interactive portfolio with AI integration."
+                "My key projects include: 1) Neural surrogate models (PINNs, operator learning) accelerating DPD/CFD simulations at ITRI, 2) An agentic RAG research pipeline with automated tuning, 3) Particle Size Analysis using YOLO-based instance segmentation (master's thesis), 4) A RAG-powered vehicle recommendation chatbot (Porsche Digital Campus Challenge), and 5) This portfolio website!",
+                "At ITRI I build PINN and operator-learning surrogates for microfluidic design and particle-size prediction, plus an end-to-end agentic RAG pipeline. Earlier projects include YOLO-based particle analysis and LLM-powered recommendation systems.",
+                "My thesis focused on particle size analysis using YOLO-based instance segmentation. At ITRI I now work on AI-accelerated multiphysics simulation and agentic RAG systems for research workflows.",
+                "Notable projects: neural surrogates for multiphysics simulation (ITRI), agentic RAG research pipeline, AI-powered particle analysis, and an intelligent vehicle recommendation chatbot."
             ], [
-                "主要作品:1) 基於 YOLO 實例分割的粒徑分析、2) RAG 驅動的車輛推薦系統、3) LLM 整合的客戶體驗 AI、4) 量子力學模擬 ML pipeline,以及 5) 這個整合 AI 的作品集網站!",
-                "我參與過多樣化的專案:材料科學的電腦視覺應用、LLM 驅動的推薦系統、資料處理 pipeline,以及全端網頁應用。",
-                "碩士論文聚焦於使用 YOLO 實例分割處理廢棄物管理場域的粒徑分析,也打造過 RAG 推薦系統、客服 AI 與多個網頁應用。",
-                "代表作品:AI 粒徑分析系統、智慧車輛推薦聊天機器人、以 web-scraping 打造的客戶體驗 AI、工業資料處理 pipeline,以及這個整合 AI 的作品集。"
+                "主要作品:1) 工研院的神經代理模型(PINN、operator learning)加速 DPD/CFD 模擬、2) 具自動化調參的 agentic RAG 研究管線、3) 基於 YOLO 實例分割的粒徑分析(碩士論文)、4) RAG 驅動的車輛推薦聊天機器人(Porsche Digital Campus Challenge),以及 5) 這個作品集網站!",
+                "在工研院建構 PINN 與 operator learning 代理模型,應用於微流道設計與粒徑預測,並打造端到端 agentic RAG 管線;早期作品包含 YOLO 粒徑分析與 LLM 推薦系統。",
+                "碩士論文聚焦於 YOLO 實例分割的粒徑分析;目前在工研院從事 AI 加速多物理模擬與 agentic RAG 系統。",
+                "代表作品:多物理模擬神經代理模型(工研院)、agentic RAG 研究管線、AI 粒徑分析系統、智慧車輛推薦聊天機器人。"
             ]);
         }
 
         // Contact
         if (lowerMessage.includes('contact') || lowerMessage.includes('email')) {
             return pickResponse([
-                "You can reach me at sam9960628@gmail.com. I'm on LinkedIn (po-yen-chen-311bb114a) and GitHub (Poyen-Chen). Based in Aachen, Germany and open to opportunities worldwide.",
+                "You can reach me at sam9960628@gmail.com. I'm on LinkedIn (po-yen-chen-311bb114a) and GitHub (Poyen-Chen). Based in Hsinchu, Taiwan and open to opportunities worldwide.",
                 "My email is sam9960628@gmail.com. I'm always open to discussing opportunities, collaborations, or interesting conversations about AI and technology. You can also find me on LinkedIn and GitHub.",
-                "Feel free to contact me at sam9960628@gmail.com. I'm currently based in Aachen, Germany and open to remote work, relocation opportunities, and freelance projects.",
+                "Feel free to contact me at sam9960628@gmail.com. I'm currently based in Hsinchu, Taiwan and open to remote work and relocation opportunities.",
                 "You can reach me via email at sam9960628@gmail.com. I'm active on LinkedIn and GitHub, and I'm always interested in new opportunities, research collaborations, and interesting projects."
             ], [
-                "歡迎透過 sam9960628@gmail.com 聯絡我,也可以在 LinkedIn(po-yen-chen-311bb114a)與 GitHub(Poyen-Chen)找到我。目前在德國阿亨,歡迎世界各地的機會。",
+                "歡迎透過 sam9960628@gmail.com 聯絡我,也可以在 LinkedIn(po-yen-chen-311bb114a)與 GitHub(Poyen-Chen)找到我。目前在台灣新竹,歡迎世界各地的機會。",
                 "我的 Email 是 sam9960628@gmail.com,很樂意討論合作或聊 AI 與技術。也可以在 LinkedIn 或 GitHub 找到我。",
-                "歡迎聯絡 sam9960628@gmail.com。目前位於德國阿亨,可遠端、可搬遷,也歡迎自由接案機會。",
+                "歡迎聯絡 sam9960628@gmail.com。目前位於台灣新竹,可遠端、可搬遷。",
                 "Email 是 sam9960628@gmail.com,LinkedIn 與 GitHub 都有在使用,持續關注新機會與研究合作。"
             ]);
         }
@@ -224,15 +224,15 @@
         // Experience
         if (lowerMessage.includes('experience') || lowerMessage.includes('work') || lowerMessage.includes('job')) {
             return pickResponse([
-                "I have 3+ years of experience in AI/ML, computer vision, and full-stack development. I've worked on research projects, participated in hackathons like the Porsche Digital Campus Challenge, and developed various applications.",
-                "My experience spans AI/ML applications, computer vision projects, web development, and research. I'm currently serving as web maintainer for the Taiwanese Student Association Aachen and open to new opportunities.",
-                "I've gained experience through research projects, hackathons, and personal projects. I'm currently contributing to the Taiwanese community as web maintainer for TWSV Aachen and interested in full-time positions.",
-                "With 3+ years in AI/ML and development, I've worked on diverse projects from computer vision to web applications. I'm also involved in community work as web maintainer for the Taiwanese Student Association Aachen."
+                "I'm currently an AI Research Engineer at ITRI (since December 2025), working on AI-accelerated simulation and agentic RAG systems. Before that: 3+ years of AI/ML research projects at RWTH Aachen, hackathons like the Porsche Digital Campus Challenge, and a year as an instrumentation & control engineer at CTCI.",
+                "My experience spans scientific machine learning at ITRI, AI/ML research at RWTH Aachen, and engineering work at CTCI in Taipei. I've also competed in hackathons and serve the Taiwanese student community in Aachen.",
+                "At ITRI I build surrogate models for molecular dynamics and CFD, plus production agentic RAG pipelines. Earlier, I developed computer vision and LLM applications during my master's at RWTH Aachen.",
+                "Current role: AI Research Engineer at ITRI, Taiwan. Past experience includes research projects at RWTH Aachen, the Porsche Digital Campus Challenge, and instrumentation & control engineering at CTCI."
             ], [
-                "3 年以上 AI/ML、電腦視覺與全端開發經驗。參與過研究專案、Porsche Digital Campus Challenge 等黑客松,並開發多項應用。",
-                "經驗橫跨 AI/ML 應用、電腦視覺、網頁開發與研究,目前也擔任德國阿亨台灣同學會的網站維護者,正在尋找新機會。",
-                "透過研究專案、黑客松與個人專案累積經驗,目前為 TWSV Aachen 的網站維護者,也在尋找全職機會。",
-                "擁有 3 年以上 AI/ML 與開發經驗,作品涵蓋電腦視覺到網頁應用,同時也參與 TWSV Aachen 的社群工作。"
+                "目前是工研院 AI 研發工程師(2025 年 12 月至今),從事 AI 加速模擬與 agentic RAG 系統。此前在 RWTH Aachen 累積 3 年以上 AI/ML 研究經驗,參與 Porsche Digital Campus Challenge 等黑客松,也曾在中鼎工程擔任儀控工程師一年。",
+                "經驗橫跨工研院的科學機器學習、RWTH Aachen 的 AI/ML 研究,與中鼎工程的工程實務;也參與黑客松與阿亨台灣同學會的社群工作。",
+                "在工研院建構分子動力學與 CFD 的代理模型,以及生產級 agentic RAG 管線;碩士期間則開發電腦視覺與 LLM 應用。",
+                "現職:工研院 AI 研發工程師。過往經歷包含 RWTH Aachen 研究專案、Porsche Digital Campus Challenge,以及中鼎工程儀控工程師。"
             ]);
         }
 
